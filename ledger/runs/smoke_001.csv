@@ -1,0 +1,8 @@
+complexity,loss,equation
+1,46.655342,7.234392
+2,44.853188,log(m_MeltingT)
+3,40.50212,28.573214 / m_Row
+4,35.000614,sqrt(m_MeltingT) / m_Row
+6,31.638186,-1.8847797 + (sqrt(m_MeltingT) / m_Row)
+9,31.285273,(m_MendeleevNumber - (m_GSvolume_pa - (m_NValence * m_NdUnfilled))) / m_NValence
+11,30.033747,(m_MendeleevNumber / m_NValence) - (((m_GSvolume_pa / m_NValence) - m_NUnfilled) + 1.9191315)

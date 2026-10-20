@@ -8,6 +8,7 @@ complexity, loss, equation.
 """
 import argparse
 import importlib
+import json
 import sys
 from pathlib import Path
 
@@ -36,6 +37,29 @@ def magpie_means(df, formula_col):
     return df, out
 
 
+def add_descriptors(df, X, descriptors):
+    """Append descriptors/<name>.compute() columns to X. Shared with eval/score.py."""
+    # descriptors see only composition + Magpie means, never target/modulus columns
+    view = X.copy()
+    view["comp"] = df["comp"].values
+    view.index = df.index
+    X = X.copy()
+    X.index = df.index
+    for name in descriptors:
+        mod = importlib.import_module(f"descriptors.{name}")
+        d = pd.Series(mod.compute(view))
+        if not d.index.equals(df.index):
+            raise ValueError(f"{name}: returned index does not match input rows")
+        X[name] = pd.to_numeric(d, errors="coerce").astype(float)
+    return X
+
+
+def featurize(df, descriptors, formula_col="formula"):
+    """Full feature pipeline: formula -> Magpie means (+ descriptors). Returns (df, X)."""
+    df, X = magpie_means(df, formula_col)
+    return df, add_descriptors(df, X, descriptors)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--descriptors", nargs="*", default=[], help="module names in descriptors/, e.g. d_001")
@@ -49,19 +73,7 @@ def main():
     from pysr import PySRRegressor
 
     df = pd.read_csv(ROOT / "data/splits/train.csv")
-    df, X = magpie_means(df, args.formula_col)
-
-    # descriptors see only composition + Magpie means, never target/modulus columns
-    view = X.copy()
-    view["comp"] = df["comp"].values
-    view.index = df.index
-    X.index = df.index
-    for name in args.descriptors:
-        mod = importlib.import_module(f"descriptors.{name}")
-        d = pd.Series(mod.compute(view))
-        if not d.index.equals(df.index):
-            raise ValueError(f"{name}: returned index does not match input rows")
-        X[name] = pd.to_numeric(d, errors="coerce").astype(float)
+    df, X = featurize(df, args.descriptors, args.formula_col)
 
     y = df[args.target].astype(float).values
     Xv = X.astype(float).values
@@ -83,6 +95,9 @@ def main():
     out = ROOT / "ledger/runs"
     out.mkdir(parents=True, exist_ok=True)
     model.equations_[["complexity", "loss", "equation"]].to_csv(out / f"{args.run_id}.csv", index=False)
+    (out / f"{args.run_id}.json").write_text(
+        json.dumps({"descriptors": args.descriptors, "target": args.target, "formula_col": args.formula_col})
+    )
     print(f"wrote {out / (args.run_id + '.csv')}")
 
 

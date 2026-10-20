@@ -1,1 +1,9 @@
 run_id,timestamp,branch,descriptor_set,split,complexity,val_mae,formula,notes
+smoke_001,2026-10-20T23:27:11+00:00,main,baseline_mean,val,0,5.258939,7.227971,predict train-mean target
+smoke_001,2026-10-20T23:27:11+00:00,main,d_001,val,1,5.260347,7.234392,train_loss=46.6553
+smoke_001,2026-10-20T23:27:11+00:00,main,d_001,val,2,5.094435,log(m_MeltingT),train_loss=44.8532
+smoke_001,2026-10-20T23:27:11+00:00,main,d_001,val,3,5.075346,28.573214 / m_Row,train_loss=40.5021
+smoke_001,2026-10-20T23:27:11+00:00,main,d_001,val,4,4.890038,sqrt(m_MeltingT) / m_Row,train_loss=35.0006
+smoke_001,2026-10-20T23:27:11+00:00,main,d_001,val,6,4.352843,-1.8847797 + (sqrt(m_MeltingT) / m_Row),train_loss=31.6382
+smoke_001,2026-10-20T23:27:11+00:00,main,d_001,val,9,4.327182,(m_MendeleevNumber - (m_GSvolume_pa - (m_NValence * m_NdUnfilled))) / m_NValence,train_loss=31.2853
+smoke_001,2026-10-20T23:27:11+00:00,main,d_001,val,11,4.258268,(m_MendeleevNumber / m_NValence) - (((m_GSvolume_pa / m_NValence) - m_NUnfilled) + 1.9191315),train_loss=30.0337

@@ -2,7 +2,11 @@
 
 ## Goal
 Find a compact, physically interpretable composition-only formula for Vickers hardness
-that beats the Chen (2011) model on held-out chemical families.
+that beats the baseline on held-out chemical families.
+
+Baseline: a composition-only model (Tehrani 2018 SVM: composition -> B,G -> Chen Hv), NOT Chen
+itself, because Chen (2011) requires B and G, which need DFT. Target for now is `hv_chen`
+computed from DFT B,G in data/raw (team decision; may change Wednesday — see wiki/DECISIONS.md).
 
 ## Fixed (never change these)
 - Metric: MAE in GPa on data/splits/val.csv using eval/score.py. Do not edit score.py or the splits.
