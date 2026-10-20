@@ -15,3 +15,12 @@ c002,2026-10-20T23:27:53+00:00,agent/overnight-1,d_002,val,6,4.377322,sqrt(m_Mel
 c002,2026-10-20T23:27:53+00:00,agent/overnight-1,d_002,val,7,3.999610,((0.078415416 / m_Row) * m_MeltingT) / m_Row,train_loss=29.6206
 c002,2026-10-20T23:27:53+00:00,agent/overnight-1,d_002,val,8,4.157372,sqrt(m_MeltingT / (m_Number / m_NsValence)) - m_NsValence,train_loss=29.4598
 c002,2026-10-20T23:27:53+00:00,agent/overnight-1,d_002,val,9,4.075716,sqrt(m_MeltingT / (m_Number / m_NsValence)) - sqrt(m_Row),train_loss=28.83
+c003,2026-10-20T23:28:37+00:00,agent/overnight-1,d_003,val,1,5.261081,7.2376623,train_loss=46.6554
+c003,2026-10-20T23:28:37+00:00,agent/overnight-1,d_003,val,2,5.094435,log(m_MeltingT),train_loss=44.8532
+c003,2026-10-20T23:28:37+00:00,agent/overnight-1,d_003,val,3,4.644426,m_SpaceGroupNumber / m_Number,train_loss=37.2722
+c003,2026-10-20T23:28:37+00:00,agent/overnight-1,d_003,val,4,4.402431,sqrt(m_MeltingT / m_Number),train_loss=33.24
+c003,2026-10-20T23:28:37+00:00,agent/overnight-1,d_003,val,5,3.980976,m_MeltingT / (m_Number / 0.12512518),train_loss=31.9974
+c003,2026-10-20T23:28:37+00:00,agent/overnight-1,d_003,val,6,4.370608,sqrt(m_MeltingT / (m_Number + -3.4886174)),train_loss=30.5442
+c003,2026-10-20T23:28:37+00:00,agent/overnight-1,d_003,val,7,3.970880,(m_MeltingT / (m_Number / 0.10917791)) + m_NpUnfilled,train_loss=29.2244
+c003,2026-10-20T23:28:37+00:00,agent/overnight-1,d_003,val,9,3.980324,(m_MeltingT / ((m_GSbandgap + m_Number) / 0.11562967)) + m_NpUnfilled,train_loss=28.1475
+c003,2026-10-20T23:28:37+00:00,agent/overnight-1,d_003,val,11,4.004858,m_NpUnfilled + (m_MeltingT / (((m_Number + m_GSbandgap) + m_GSbandgap) / 0.12512518)),train_loss=27.9231
