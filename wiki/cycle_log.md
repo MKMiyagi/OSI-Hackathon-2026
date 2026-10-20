@@ -16,3 +16,7 @@ Reviewer (codex, medium): weak metallicity proxy; hard TM carbides/nitrides/bori
 ## cycle 005 — d_005 Gao ionicity penalty exp(-1.191 f_i), run c005
 best val_mae 3.9753 (complexity 10; USES d_005: sqrt(MeltingT)/(Row-(d_005+0.1786)) - 4.755). NO improvement vs 3.9709 (streak 2/3). First descriptor PySR actually selected.
 Reviewer (codex, medium): plausible Gao-style covalency proxy, ignores stoichiometry/bond density; dimensionless; fitted equation not dimensionally explicit (sqrt(K) mixed with dimensionless; sqrt(MeltingT) has no unit-consistent meaning); possible unstable denominator (Row - d_005 - 0.18); no leakage. No demonstrated incremental benefit.
+
+## cycle 006 — d_006 n_e^(2/3)·exp(-1.191 f_i) (Gao composite), run c006
+best val_mae 4.0475 (complexity 12). d_006 NOT selected. NO improvement vs 3.9709 (streak 3/3 -> STOP condition).
+Reviewer (codex, medium): heuristic, not faithful Gao (averaged elemental volumes, range-only ionicity); output units (e/A^3)^(2/3) not GPa; no leakage; note added descriptors can change the joint finite-row filter; recommends pausing this family.
