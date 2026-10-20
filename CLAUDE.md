@@ -20,3 +20,11 @@ that beats the Chen (2011) model on held-out chemical families.
 ## Stop conditions
 - Max 12 cycles per night, or 3 consecutive cycles without val-MAE improvement at the knee, or 06:00 local.
 - On any error you can't fix in 2 attempts: write wiki/BLOCKED.md and stop. Do not delete data or history.
+<!-- ARIS:BEGIN -->
+## ARIS Skill Scope
+ARIS skills installed in this project: 86 entries.
+Manifest: `.aris/installed-skills.txt` (lists every skill ARIS installed and its upstream target).
+For ARIS workflows, prefer the project-local skills under `.claude/skills/` over global skills.
+Do not modify or delete files inside any skill that is a symlink (symlinks point into `/Users/mmiyagishima/aris_repo`).
+Update with: `bash /Users/mmiyagishima/aris_repo/tools/install_aris.sh`  (re-runnable; reconciles new/removed skills).
+<!-- ARIS:END -->

@@ -1,0 +1,6 @@
+version	1
+repo_root	/Users/mmiyagishima/aris_repo
+project_root	/Users/mmiyagishima/OSI-Hackathon-2026
+generated	2026-10-20T22:23:29Z
+kind	name	source_rel	target_rel	mode
+agent	aris-fanout-leaf	agents/aris-fanout-leaf.md	.claude/agents/aris-fanout-leaf.md	symlink
