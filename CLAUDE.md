@@ -19,6 +19,7 @@ that beats the Chen (2011) model on held-out chemical families.
 
 ## Stop conditions
 - Max 12 cycles per night, or 3 consecutive cycles without val-MAE improvement at the knee, or 06:00 local.
+- Before each cycle, check for a file named STOP in the repo root. If present: finish the current step, commit, write wiki/STOPPED.md, and stop.
 - On any error you can't fix in 2 attempts: write wiki/BLOCKED.md and stop. Do not delete data or history.
 <!-- ARIS:BEGIN -->
 ## ARIS Skill Scope
