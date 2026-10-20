@@ -1,0 +1,11 @@
+complexity,loss,equation
+1,46.6553,7.2299953
+2,44.853188,log(m_MeltingT)
+3,37.27218,m_SpaceGroupNumber / m_Number
+4,33.240025,sqrt(m_MeltingT / m_Number)
+5,32.418274,m_NUnfilled + (230.84494 / m_AtomicWeight)
+6,30.550705,sqrt(m_MeltingT / (m_Number + -3.3015468))
+8,29.372505,(sqrt(m_MeltingT / m_Number) + -3.1469305) / 0.5016747
+9,29.368944,(sqrt(m_MeltingT / m_Number) + -3.1469305) / sqrt(0.25331223)
+11,28.676825,m_NpUnfilled + (sqrt((m_MeltingT / m_Number) / sqrt(0.25331223)) + -3.1469305)
+12,28.351934,(exp(sqrt((sqrt(m_MeltingT) / m_AtomicWeight) + 17.365116)) + -65.48661) + m_NUnfilled

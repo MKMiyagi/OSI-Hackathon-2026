@@ -8,3 +8,7 @@ Reviewer (codex, medium): plausible, units OK (e/A^3), no leakage. Notes: ratio 
 ## cycle 003 — d_003 light-element (B,C,N,O) atomic fraction, run c003
 best val_mae 3.9709 (complexity 7, Magpie-only: MeltingT/Number + NpUnfilled). d_003 NOT selected. Improved vs 3.9996 (tiny; search noise, not attributable to d_003).
 Reviewer (codex, medium): coarse but plausible; including O weakens rationale (ionic oxides) — test B/C/N separately; units fine; no leakage. No demonstrated incremental benefit.
+
+## cycle 004 — d_004 d-block transition-metal fraction (metallicity proxy), run c004
+best val_mae 4.0376 (complexity 9). d_004 NOT selected. NO improvement vs 3.9709 (non-improving streak 1/3).
+Reviewer (codex, medium): weak metallicity proxy; hard TM carbides/nitrides/borides make negative sign non-universal; units fine; no leakage; docstring element-range wording misleading (fixed). Sign is a hypothesis, not a constraint.
