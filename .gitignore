@@ -1,0 +1,20 @@
+# data
+data/raw/*
+!data/raw/.gitkeep
+data/test.csv
+*.pkl
+# secrets
+.env
+# python
+.venv/
+__pycache__/
+*.egg-info/
+# pysr / julia scratch
+outputs/
+.julia/
+# marimo
+__marimo__/
+# os / editors
+.DS_Store
+.vscode/
+.idea/

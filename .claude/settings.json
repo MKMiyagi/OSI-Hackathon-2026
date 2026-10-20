@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./data/test.csv)",
+      "Read(~/quarantine/**)",
+      "Read(./.env)"
+    ]
+  }
+}

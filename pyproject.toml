@@ -1,0 +1,21 @@
+[project]
+name = "osi-hackathon-2026"
+version = "0.1.0"
+description = "Compact, interpretable composition-only formula for Vickers hardness (OSI Hackathon 2026)"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "pysr",
+    "matminer",
+    "pymatgen",
+    "scikit-learn",
+    "pandas",
+    "numpy",
+    "matplotlib",
+    "marimo",
+    "mp-api",
+    "python-dotenv",
+]
+
+[tool.uv]
+package = false
