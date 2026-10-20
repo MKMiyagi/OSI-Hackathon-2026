@@ -7,3 +7,11 @@ smoke_001,2026-10-20T23:27:11+00:00,main,d_001,val,4,4.890038,sqrt(m_MeltingT) /
 smoke_001,2026-10-20T23:27:11+00:00,main,d_001,val,6,4.352843,-1.8847797 + (sqrt(m_MeltingT) / m_Row),train_loss=31.6382
 smoke_001,2026-10-20T23:27:11+00:00,main,d_001,val,9,4.327182,(m_MendeleevNumber - (m_GSvolume_pa - (m_NValence * m_NdUnfilled))) / m_NValence,train_loss=31.2853
 smoke_001,2026-10-20T23:27:11+00:00,main,d_001,val,11,4.258268,(m_MendeleevNumber / m_NValence) - (((m_GSvolume_pa / m_NValence) - m_NUnfilled) + 1.9191315),train_loss=30.0337
+c002,2026-10-20T23:27:53+00:00,agent/overnight-1,d_002,val,1,5.258663,7.226715,train_loss=46.6553
+c002,2026-10-20T23:27:53+00:00,agent/overnight-1,d_002,val,2,5.094435,log(m_MeltingT),train_loss=44.8532
+c002,2026-10-20T23:27:53+00:00,agent/overnight-1,d_002,val,3,4.644426,m_SpaceGroupNumber / m_Number,train_loss=37.2722
+c002,2026-10-20T23:27:53+00:00,agent/overnight-1,d_002,val,4,4.402431,sqrt(m_MeltingT / m_Number),train_loss=33.24
+c002,2026-10-20T23:27:53+00:00,agent/overnight-1,d_002,val,6,4.377322,sqrt(m_MeltingT / (m_Number - 2.997685)),train_loss=30.6978
+c002,2026-10-20T23:27:53+00:00,agent/overnight-1,d_002,val,7,3.999610,((0.078415416 / m_Row) * m_MeltingT) / m_Row,train_loss=29.6206
+c002,2026-10-20T23:27:53+00:00,agent/overnight-1,d_002,val,8,4.157372,sqrt(m_MeltingT / (m_Number / m_NsValence)) - m_NsValence,train_loss=29.4598
+c002,2026-10-20T23:27:53+00:00,agent/overnight-1,d_002,val,9,4.075716,sqrt(m_MeltingT / (m_Number / m_NsValence)) - sqrt(m_Row),train_loss=28.83
