@@ -3,7 +3,7 @@
 Rationale: partially filled d bands give delocalized metallic bonding that is non-directional
 and plastically soft, lowering hardness (Tian 2012 metallic term; Mazhnik & Oganov 2019 treat
 metallicity as hardness-reducing). Dimensionless atomic fraction (0..1), including Sc-Zn,
-Y-Cd, La-Hg (Hf-Hg), no f-block. Expected sign: negative.
+Y-Cd, Hf-Hg; pymatgen is_transition_metal, lanthanoids/actinoids excluded. Expected sign: negative.
 Uses only df["comp"].
 """
 import pandas as pd

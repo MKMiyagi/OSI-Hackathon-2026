@@ -12,3 +12,7 @@ Reviewer (codex, medium): coarse but plausible; including O weakens rationale (i
 ## cycle 004 — d_004 d-block transition-metal fraction (metallicity proxy), run c004
 best val_mae 4.0376 (complexity 9). d_004 NOT selected. NO improvement vs 3.9709 (non-improving streak 1/3).
 Reviewer (codex, medium): weak metallicity proxy; hard TM carbides/nitrides/borides make negative sign non-universal; units fine; no leakage; docstring element-range wording misleading (fixed). Sign is a hypothesis, not a constraint.
+
+## cycle 005 — d_005 Gao ionicity penalty exp(-1.191 f_i), run c005
+best val_mae 3.9753 (complexity 10; USES d_005: sqrt(MeltingT)/(Row-(d_005+0.1786)) - 4.755). NO improvement vs 3.9709 (streak 2/3). First descriptor PySR actually selected.
+Reviewer (codex, medium): plausible Gao-style covalency proxy, ignores stoichiometry/bond density; dimensionless; fitted equation not dimensionally explicit (sqrt(K) mixed with dimensionless; sqrt(MeltingT) has no unit-consistent meaning); possible unstable denominator (Row - d_005 - 0.18); no leakage. No demonstrated incremental benefit.

@@ -34,3 +34,12 @@ c004,2026-10-20T23:29:19+00:00,agent/overnight-1,d_004,val,8,4.039851,(sqrt(m_Me
 c004,2026-10-20T23:29:19+00:00,agent/overnight-1,d_004,val,9,4.037557,(sqrt(m_MeltingT / m_Number) + -3.1469305) / sqrt(0.25331223),train_loss=29.3689
 c004,2026-10-20T23:29:19+00:00,agent/overnight-1,d_004,val,11,4.226466,m_NpUnfilled + (sqrt((m_MeltingT / m_Number) / sqrt(0.25331223)) + -3.1469305),train_loss=28.6768
 c004,2026-10-20T23:29:19+00:00,agent/overnight-1,d_004,val,12,4.092269,(exp(sqrt((sqrt(m_MeltingT) / m_AtomicWeight) + 17.365116)) + -65.48661) + m_NUnfilled,train_loss=28.3519
+c005,2026-10-20T23:29:59+00:00,agent/overnight-1,d_005,val,1,5.259001,7.228255,train_loss=46.6553
+c005,2026-10-20T23:29:59+00:00,agent/overnight-1,d_005,val,2,5.094435,log(m_MeltingT),train_loss=44.8532
+c005,2026-10-20T23:29:59+00:00,agent/overnight-1,d_005,val,3,4.644426,m_SpaceGroupNumber / m_Number,train_loss=37.2722
+c005,2026-10-20T23:29:59+00:00,agent/overnight-1,d_005,val,4,4.402431,sqrt(m_MeltingT / m_Number),train_loss=33.24
+c005,2026-10-20T23:29:59+00:00,agent/overnight-1,d_005,val,6,4.419475,(sqrt(m_MeltingT) - m_NdValence) / m_Row,train_loss=30.6814
+c005,2026-10-20T23:29:59+00:00,agent/overnight-1,d_005,val,7,4.223605,(sqrt(m_MeltingT) / m_Row) - sqrt(m_NdValence),train_loss=29.6518
+c005,2026-10-20T23:29:59+00:00,agent/overnight-1,d_005,val,8,4.054557,(sqrt(m_MeltingT) / (m_Row - 0.865107)) + -4.7551064,train_loss=28.2247
+c005,2026-10-20T23:29:59+00:00,agent/overnight-1,d_005,val,9,4.061139,(sqrt(m_MeltingT) / (m_Row - sqrt(0.8328498))) + -4.7551064,train_loss=28.205
+c005,2026-10-20T23:29:59+00:00,agent/overnight-1,d_005,val,10,3.975305,(sqrt(m_MeltingT) / (m_Row - (d_005 + 0.17856257))) + -4.7551064,train_loss=27.2557
