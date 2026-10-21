@@ -1,0 +1,16 @@
+features,n_features,quantity,route,val_mae,val_r2,cv_score,params,val_mae_tail20,val_mae_nonneg
+tehrani150,150,bulk_modulus,svr_log,10.4948,0.9513,0.1304,"{'regressor__svr__C': 10, 'regressor__svr__epsilon': 0.02, 'regressor__svr__gamma': 0.002}",,
+tehrani150,150,shear_modulus,svr_log,11.4596,0.8312,0.2066,"{'regressor__svr__C': 10, 'regressor__svr__epsilon': 0.02, 'regressor__svr__gamma': 0.002}",,
+tehrani150,150,hv_chen,BG,2.7493,0.6719,,,7.0370,2.8200
+tehrani150,150,hv_chen,BG_kcap,2.7493,0.6719,,,7.0370,2.8200
+tehrani150,150,hv_chen,direct,2.8053,0.6492,,,7.9817,2.8410
+tehrani_comp,132,bulk_modulus,svr_log,13.8137,0.9146,0.1555,"{'regressor__svr__C': 3, 'regressor__svr__epsilon': 0.02, 'regressor__svr__gamma': 'scale'}",,
+tehrani_comp,132,shear_modulus,svr_log,13.5348,0.7595,0.2374,"{'regressor__svr__C': 3, 'regressor__svr__epsilon': 0.02, 'regressor__svr__gamma': 'scale'}",,
+tehrani_comp,132,hv_chen,BG,3.0168,0.5697,,,9.0381,3.0708
+tehrani_comp,132,hv_chen,BG_kcap,3.0168,0.5697,,,9.0381,3.0708
+tehrani_comp,132,hv_chen,direct,2.9918,0.6117,,,8.6862,3.0040
+magpie,132,bulk_modulus,svr_log,13.9779,0.9130,0.1668,"{'regressor__svr__C': 10, 'regressor__svr__epsilon': 0.02, 'regressor__svr__gamma': 0.002}",,
+magpie,132,shear_modulus,svr_log,12.8046,0.8062,0.2499,"{'regressor__svr__C': 30, 'regressor__svr__epsilon': 0.1, 'regressor__svr__gamma': 0.002}",,
+magpie,132,hv_chen,BG,2.8393,0.6752,,,7.5200,2.9460
+magpie,132,hv_chen,BG_kcap,2.8393,0.6752,,,7.5200,2.9460
+magpie,132,hv_chen,direct,2.8170,0.6813,,,7.6251,2.8378

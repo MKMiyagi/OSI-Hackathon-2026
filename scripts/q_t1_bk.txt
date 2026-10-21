@@ -1,0 +1,18 @@
+t1_hv_s0 0 hv_chen
+t1_B_s0 0 bulk_modulus
+t1_k_s0 0 pugh_k
+t1_Bd23_s0 0 bulk_modulus d_023
+t1_kd08_s0 0 pugh_k d_008
+t1_hvd23_s0 0 hv_chen d_023
+t1_hv_s1 1 hv_chen
+t1_B_s1 1 bulk_modulus
+t1_k_s1 1 pugh_k
+t1_Bd23_s1 1 bulk_modulus d_023
+t1_kd08_s1 1 pugh_k d_008
+t1_hvd23_s1 1 hv_chen d_023
+t1_hv_s2 2 hv_chen
+t1_B_s2 2 bulk_modulus
+t1_k_s2 2 pugh_k
+t1_Bd23_s2 2 bulk_modulus d_023
+t1_kd08_s2 2 pugh_k d_008
+t1_hvd23_s2 2 hv_chen d_023
