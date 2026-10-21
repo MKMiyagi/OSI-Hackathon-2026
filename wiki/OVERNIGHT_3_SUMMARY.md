@@ -13,9 +13,9 @@ Failures: Julia segfaults on 2 fits (v008_wo_s2, c013_s1; logs kept as `*.attemp
 ## Per-cycle table (mean over 3 seeds; paired = vs v008_wo s0-2 same seed labels; reference 9-seed means c<=9 4.1947, c<=12 3.9802)
 | cycle | descriptor | mean c<=9 | mean c<=12 | paired c<=9 / c<=12 | selected (seeds; min complexity) | verdict |
 |---|---|---|---|---|---|---|
-| 012 | d_014 sum x(chi_max-chi) | 4.1947 | 3.9320 | -0.000 / -0.048 | 2/3; c8 (val 4.32, worse than baseline) | noise; c12 gain is the Magpie ceiling |
+| 012 | d_014 sum x(chi_max-chi) | 4.1947 | 3.9320 | -0.000 / -0.048 | 2/3; c8 (val 4.32, worse than baseline) | noise; c12 gain equals the best observed Magpie-only c12 (this search configuration) |
 | 013 | d_015 Pauling ionic character | 4.1946 | 4.0331 | -0.000 / +0.053 | 2/3; c8 (val 4.28, worse) | no gain |
-| 014 | d_016 Allen-scale EN range | 4.1946 | 3.9114 | -0.000 / -0.069 | 1/3; c10 | does not reproduce d_008; c12 = Magpie ceiling |
+| 014 | d_016 Allen-scale EN range | 4.1946 | 3.9114 | -0.000 / -0.069 | 1/3; c10 | does not reproduce d_008; c12 = best observed Magpie-only c12 (this search configuration) |
 | 015 | d_008 + d_007 | 4.0849 | 3.9997 | -0.110 / +0.020 | d_008 2/3 at c8; d_007 only at c11+ (one seed 3.9172) | = d_008 alone; no interaction shown |
 | 016 | d_013 alone | 4.1988 | 4.0020 | +0.004 / +0.022 | 0/3 | no signal |
 | 017 | d_008 + d_013 | 4.0890 | 3.9905 | -0.106 / +0.010 | d_008 2/3 at c8; d_013 once at c14 (unit-inconsistent) | = d_008 alone |
@@ -24,7 +24,7 @@ Failures: Julia segfaults on 2 fits (v008_wo_s2, c013_s1; logs kept as `*.attemp
 Per-seed numbers and reviewer verdicts: wiki/cycle_log.md; scores: ledger/cycle_scores3.csv.
 
 ## Signal vs noise
-- Most credible: electronegativity spread lowers Hv in a stable compact form with row number, `NUnfilled + C*exp(-(Row + chi_range))`; recurs in 9 runs (variable set d_008 + Row + NUnfilled) (ablation, long, joint cycles). But it only displaces the Magpie c9 equation; it raises no ceiling at c12-15, and the Allen-scale replacement (d_016), the ionic-character transform (d_015) and the mean-deviation form (d_014) do not reproduce it, so it is sensitive to the exact functional form and scale (the Allen table is hand-entered and unverified in full).
+- Most credible: electronegativity spread lowers Hv in a stable compact form with row number, `NUnfilled + C*exp(-(Row + chi_range))`; recurs in 9 runs (variable set d_008 + Row + NUnfilled) (ablation, long, joint cycles). But it only displaces the Magpie c9 equation; it does not improve on the best observed Magpie-only result (this search configuration) at c12-15, and the Allen-scale replacement (d_016), the ionic-character transform (d_015) and the mean-deviation form (d_014) do not reproduce it, so it is sensitive to the exact functional form and scale (the Allen table is hand-entered and unverified in full).
 - d_018 (squared range) and d_017 (anion-like EN content) are selected in 3/3 seeds, but their c<=12 means equal the reference; their best single seeds (4.0025 at c9; 3.7722 at c12) are seed-specific, and the 3.7722 is driven by ~10 val rows. Treat as hypotheses needing out-of-val checks, not results. d_017's fitted sign is opposite to the hypothesis.
 - Noise: d_007 interaction, d_013 (both alone and with d_008), d_014, d_015, d_016. d_013 and d_007 are now retired for this search design.
 - Magpie-only floor: c12 3.911 (38 runs) and c15 3.892 are the real baselines; every c<=12 "gain" below ~0.1 GPa is inside seed sd (0.06-0.09).
