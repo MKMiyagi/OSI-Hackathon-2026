@@ -15,3 +15,6 @@ Proposal (not adopted): (1) score a descriptor by the paired difference vs a sam
 - "Magpie ceiling" is replaced everywhere by "best observed under this search configuration" (README, summaries); it was never a bound.
 - Framing: compact composition-only emulator of the DFT-derived Chen proxy, compared against the Tehrani-style composition -> B,G -> Chen pipeline; "beats Chen" is incoherent because labels are Chen's output.
 - All val MAEs are development-set (val, reused) numbers. Per-cycle scoring uses sr/cycle_summary3.py (9 reference runs, c<=9/12/15, headline c<=12, >=0.08 drop AND majority selection); output file ledger/cycle_scores4.csv.
+
+## Train-median constant comparator (2026-10-21)
+`eval/score.py` has no median path (only a one-time train-mean `baseline_mean` row, 5.2589 val MAE) and may not be edited, so no ledger row was added. Documented here instead, computed directly (scripts/data_audit.py): train median target = 5.7499 GPa; **val MAE of that constant = 5.0442 GPa** (train-mean constant 7.2280 -> 5.2589). Comparator for all development-set claims: best SR equations (3.77-4.19) improve on it by roughly 0.85-1.27 GPa. Development-set (val, reused) numbers.
