@@ -1,0 +1,1 @@
+{"descriptors": ["d_019"], "target": "hv_chen", "formula_col": "formula", "seed": 1, "exclude_features": ["m_MeltingT", "m_SpaceGroupNumber"], "niterations": 22000, "maxsize": 15, "timeout_in_seconds": 900, "fit_seconds": 906.8, "loss": "L2", "units": false, "dimensionless_constants": false}
