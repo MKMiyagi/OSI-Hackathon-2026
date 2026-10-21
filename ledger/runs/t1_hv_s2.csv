@@ -1,0 +1,9 @@
+complexity,loss,equation
+1,4.8307567,5.749404
+3,4.3579917,m_NUnfilled / 0.58006495
+5,3.9487255,(m_NUnfilled / m_Number) * 47.2372
+7,3.8821647,((m_NUnfilled / m_Row) / m_Row) * 27.962433
+9,3.8276823,((m_NUnfilled - m_NpValence) + 3.120996) / (m_Number / 31.581097)
+11,3.7108676,((m_NUnfilled + 2.6356862) - m_NpValence) / ((m_Number / 0.5962233) / m_MendeleevNumber)
+13,3.6670763,((m_NUnfilled + 2.619317) - m_NpValence) / (((m_Number - m_NfValence) / 0.59382015) / m_MendeleevNumber)
+15,3.6223762,((m_NUnfilled - m_NpValence) + 2.6732345) / (((m_Number - (m_NfValence * 2.7569058)) / m_MendeleevNumber) / 0.5610326)

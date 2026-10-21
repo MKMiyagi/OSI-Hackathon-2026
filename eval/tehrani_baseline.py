@@ -35,7 +35,7 @@ from sklearn.svm import SVR
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-from scripts.make_splits import chen_hardness  # noqa: E402
+from eval.chen import chen_hardness  # noqa: E402
 
 # feature families that differ between polymorphs of one composition -> structure-derived
 STRUCTURE_FAMILIES = {

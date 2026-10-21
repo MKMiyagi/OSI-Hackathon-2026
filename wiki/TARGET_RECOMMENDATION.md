@@ -5,8 +5,8 @@ Final recommendation: **keep `hv_chen` as the frozen target and search it direct
 composition-based emulator of the DFT-derived Chen proxy. **Add d_023 (cohesive-energy density) to the search.** Run the
 Zhang 2021 measured-Hv external check once on Thursday. Drop the Chen(B, k) search route proposed below: in the
 experiment (wiki/T1_ROUTES.md) it added nothing beyond d_023.
-Evidence, seeds 0-1, same settings in every arm, formula picked on train:
-- direct + d_023 vs direct Magpie-only: c<=12 3.79 vs 3.92, c<=15 3.64 vs 3.88. Seed-stable.
+Evidence, 3 seeds, same settings in every arm, formula picked on train:
+- direct + d_023 vs direct Magpie-only: c<=12 3.79 vs 3.92, c<=15 3.62 vs 3.85. Seed-stable.
 - Splitting into B and k only helps once B gets d_023, and then it roughly matches direct + d_023.
 The morning text below is kept as the record of the original argument.
 
@@ -29,7 +29,7 @@ Nothing frozen changes: same splits, same `score.py`, same val MAE vs `hv_chen`,
    A 15-node formula has to reproduce both composition -> moduli *and* Chen's G^1.76 B^-1.17 nonlinearity.
 2. **B is learnable from composition with a law.** Train-only fit: **B = 3.26 (E_coh/V)^0.994 GPa** (E_coh = composition-
    weighted Kittel cohesive energy, V = Magpie mean volume, E/V in eV/A^3 x 160.2). The exponent is 1 as dimensional
-   analysis predicts (modulus ~ energy density). Val R^2 0.81 from one descriptor; SVR gets 0.91, so there is room for
+   analysis predicts (modulus ~ energy density). Val R^2 0.81 (development-set figure) from one descriptor; SVR gets 0.91, so there is room for
    corrections. It is the first quantity in the project with the target's units.
 3. **The B,G route costs nothing in accuracy:** SVR via log B, log G -> Chen = 2.84 vs 2.82 direct.
 4. **What's missing is the Pugh ratio.** With B and G both ~ E_coh/V, k = G/B is constant and Chen gives 4.45. So the

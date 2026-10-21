@@ -3,7 +3,9 @@
 Usage:
   uv run python eval/compose_hv.py --direct t1_hv_s0 t1_hv_s1 --B t1_B_s0 t1_B_s1 --k t1_k_s0 t1_k_s1 [--G ...]
 
-Per seed i, the i-th B run is paired with the i-th k run (or G run). Every (B equation, k equation) pair on the two
+Per seed i, the i-th B run is paired with the i-th k run (or G run). B and k (or G) are always PREDICTED from
+composition features by the runs' equations; the DFT B, G and k of train/val rows are used only as fit targets (by
+run_pysr, on train) and for reporting single-target MAE, never as inputs to an Hv prediction (round-3 Codex risk 1). Every (B equation, k equation) pair on the two
 Pareto fronts is evaluated; Hv = 2 (k^2 G)^0.585 - 3 with G = k B (Chen 2011). Guards, applied identically to every
 route: B >= 1 GPa, 1e-3 <= k <= max train k.
 
@@ -28,7 +30,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from eval.score import eval_equation  # noqa: E402
-from scripts.make_splits import chen_hardness  # noqa: E402
+from eval.chen import chen_hardness  # noqa: E402
 from sr.run_pysr import DERIVED_TARGETS, featurize  # noqa: E402
 
 BUDGETS = (9, 12, 15, 18, 24, 30)

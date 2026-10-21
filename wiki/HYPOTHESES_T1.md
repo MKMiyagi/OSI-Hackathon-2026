@@ -15,7 +15,8 @@ MAE 4.45; wiki/TARGET_RECOMMENDATION.md). H2-H5 have not been computed at all.
   `2118 / m_GSvolume_pa` also passes as Pa. Only `--dimensionless-constants` makes d_023 (or bandgap/volume) the
   sole route to Pa.
 - Expected sign: positive, power ~1. Train-only screen: Spearman 0.88 with B (vs 0.39 for NValence/V, d_002) and
-  0.78 with G. The 2-parameter train fit B = 3.26 * d_023^0.994 gives val R^2 0.81.
+  0.78 with G. The 2-parameter train fit B = 3.26 * d_023^0.994 gives val R^2 0.81 (development-set figure: val was
+  consulted).
 
 ## H2 Cohen covalent bulk modulus — d_024 (target B)
 - `(1971 - 220 * lam) * d^-3.5` in GPa, with d = 2 * harmonic-mean covalent radius (A; cf. d_010) and

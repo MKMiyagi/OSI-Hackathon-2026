@@ -1,0 +1,14 @@
+complexity,loss,equation
+1,0.12639427,0.5078588
+3,0.12178868,m_NsValence * 0.2871439
+4,0.116310075,exp(m_Row * -0.16587806)
+5,0.111142285,3.057227 / (m_Row + m_Electronegativity)
+6,0.11039239,sqrt(m_NsValence / m_Number) + 0.26069236
+7,0.10587062,(m_NsValence - -1.2803164) / (m_Row + m_Electronegativity)
+8,0.102692306,sqrt((m_NpValence + 2.658169) / m_Row) / m_Electronegativity
+9,0.10120045,((m_NpValence + 5.064502) / (m_Row + 2.3229244)) / m_Electronegativity
+10,0.09961646,(sqrt((m_NpValence + m_NsValence) / m_Row) / m_Electronegativity) + 0.07646471
+11,0.0979021,((((m_NpValence / m_Electronegativity) + m_NsValence) / m_Electronegativity) / m_Row) + 0.20418048
+13,0.097154334,(((m_NsValence + (m_NpValence / m_Electronegativity)) / (m_GSmagmom + m_Row)) / m_Electronegativity) + 0.21427588
+14,0.09687839,((((m_NpValence + 1.2831633) / m_Electronegativity) * (m_NsValence / m_Electronegativity)) / sqrt(m_Number)) + 0.29369363
+15,0.09677681,((((m_NpValence / (d_008 + 1.0285786)) + m_NsValence) / (m_Row + m_GSmagmom)) / m_Electronegativity) + 0.21427588

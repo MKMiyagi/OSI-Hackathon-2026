@@ -1,0 +1,2 @@
+cycle,descriptor,runs,best_c9_per_seed,mean_c9,ref_mean_c9,ref_sd_c9,diff_c9_vs_ref,best_c12_per_seed,mean_c12,ref_mean_c12,ref_sd_c12,diff_c12_vs_ref,best_c15_per_seed,mean_c15,ref_mean_c15,ref_sd_c15,diff_c15_vs_ref,selected,min_complexity_used,improvement
+020,"d_023 cohesive-energy density (T1 laptop, defaults, 22k)",t1_c020_s0+t1_c020_s1+t1_c020_s2,3.6939/3.6939/3.6939,3.6939,4.1947,0.0001,-0.5008,3.6838/3.6939/3.6939,3.6905,3.9802,0.0609,-0.2896,3.6482/3.6482/3.6577,3.6514,3.9273,0.0382,-0.2759,3/3,2/2/2,True

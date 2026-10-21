@@ -46,6 +46,13 @@ def main():
         ok &= not shared
         print(f"train/val shared {label}: {len(shared)}")
 
+    # eval/chen.py must reproduce the frozen labels (it is the side-effect-free copy of make_splits.chen_hardness)
+    sys.path.insert(0, str(ROOT))
+    from eval.chen import chen_hardness
+    dev = max(float(abs(chen_hardness(d.shear_modulus, d.bulk_modulus) - d.hv_chen).max()) for d in (tr, va))
+    ok &= dev < 1e-9
+    print(f"eval/chen.py reproduces hv_chen: max |diff| {dev:.1e}")
+
     if args.test:
         match = sha256(args.test) == (ROOT / "data/test.sha256").read_text().strip()
         ok &= match

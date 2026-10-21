@@ -1,0 +1,13 @@
+complexity,loss,equation
+1,58.096928,112.74212
+3,42.49611,2117.8538 / m_GSvolume_pa
+5,38.613495,(m_Row * 543.32324) / m_GSvolume_pa
+6,36.71691,(sqrt(m_NUnfilled) / m_GSvolume_pa) * 1157.1226
+7,33.708637,((827.6171 / m_GSvolume_pa) + -15.67173) * m_Row
+8,33.041046,((m_Row + sqrt(m_NdUnfilled)) / m_GSvolume_pa) * 419.78763
+9,31.35465,(m_NUnfilled + m_Row) * ((387.4472 / m_GSvolume_pa) + -5.87267)
+10,30.186882,(((sqrt(m_NUnfilled) + m_Row) * 554.73016) / m_GSvolume_pa) + -59.124447
+11,29.69282,(((70.77236 / m_GSvolume_pa) + -1.3744653) * m_Row) * (m_NUnfilled + 8.0014925)
+12,29.368109,(m_NUnfilled + exp(m_Row * 0.44417137)) * ((334.85864 / m_GSvolume_pa) + -6.4507627)
+14,29.2173,(((326.24762 / m_GSvolume_pa) + -7.4030294) * (exp(m_Row * 0.45193422) + m_NUnfilled)) - -12.788906
+15,29.134907,(sqrt(m_NpUnfilled) + (exp(m_Row * 0.47793993) + m_NUnfilled)) * ((292.17426 / m_GSvolume_pa) + -5.954909)
