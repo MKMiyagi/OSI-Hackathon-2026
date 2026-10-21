@@ -1,2 +1,3 @@
 cycle,descriptor,runs,best_c9_per_seed,best_c12_per_seed,best_c15_per_seed,mean_c9,mean_c12,mean_c15,ref_mean_c9,ref_mean_c12,ref_mean_c15,diff_c9_vs_ref,diff_c12_vs_ref,diff_c15_vs_ref,selected_seeds,n_selected,min_complexity_used,improvement
 020,d_023 cohesive-energy density,c020_s0+c020_s1+c020_s2,3.6939/3.6939/3.6939,3.6838/3.6838/3.6838,3.6482/3.6577/3.6482,3.6939,3.6838,3.6514,4.1947,3.9802,3.9273,-0.5008,-0.2964,-0.2759,True/True/True,3/3,2/2/2,True
+021,d_023+d_027,c021_s0+c021_s1+c021_s2,3.6939/3.6939/3.6939,3.6223/3.6228/3.6222,3.6223/3.6061/3.6222,3.6939,3.6225,3.6169,4.1947,3.9802,3.9273,-0.5008,-0.3577,-0.3104,True/True/True,3/3,10/10/10,True
