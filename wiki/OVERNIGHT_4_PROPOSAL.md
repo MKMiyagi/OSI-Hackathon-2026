@@ -7,10 +7,11 @@ T1's afternoon experiment (wiki/T1_ROUTES.md) found that **d_023 = cohesive-ener
 Pareto front. It came from 3 seeds at ~4-5k iterations, L1 loss and `--units`, on T1's laptop. That is not the adopted
 cycle protocol, so it does not count under the CLAUDE.md rule yet. Tonight's job is to test it under that protocol.
 
-**Update after the PR #12 merge:** cycle 020 (d_023, default settings, 22k iterations, 3 seeds) is running on T1's
-laptop as `t1_c020_s0..s2`, with the timeout raised to 6000 s so all 22k iterations complete. It is scored with the
-CLAUDE.md headline rule but NOT appended to ledger/results.csv. Report: wiki/CYCLE_020_T1.md. The agent can start at
-cycle 021, or rerun 020 on its own machine as a replication.
+**Update 15:45: cycle 020 PASSED** (wiki/CYCLE_020_T1.md). d_023, default settings, all 22k iterations, 3 seeds on T1's
+laptop: headline c<=12 **3.691** vs reference 3.980 (-0.29, ~4.8 sd); c<=9 3.694 (-0.50); c<=15 3.651 (-0.28); selected
+3/3. All seeds find the constant-free c8 law `d_023 / (m_NdValence + sqrt(m_Column)) + m_NpUnfilled`. Scored with the
+CLAUDE.md rule, not appended to ledger/results.csv. **The agent should start at cycle 021** (rerunning 020 on its own
+machine is an optional replication). With d_023 established, the follow-ups below test what adds to it.
 
 ## Queue (in priority order; standard CLAUDE.md cycle unless noted)
 | cycle | descriptors | settings | purpose |

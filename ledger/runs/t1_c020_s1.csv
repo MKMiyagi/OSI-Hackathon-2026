@@ -1,0 +1,15 @@
+complexity,loss,equation
+1,46.655293,7.2289405
+2,40.810505,sqrt(d_023)
+3,32.26522,d_023 / m_NValence
+4,29.338581,d_023 / sqrt(m_Number)
+5,27.15491,d_023 / (m_NdValence + 2.4610028)
+7,25.354261,(d_023 / (m_NdValence + 2.9618778)) + m_NpUnfilled
+8,24.883059,m_NpUnfilled + (d_023 / (m_NdValence + sqrt(m_Column)))
+9,24.68414,m_NpUnfilled + (d_023 / ((m_Electronegativity + m_NdValence) + 0.9517143))
+10,24.627073,m_NpUnfilled + (d_023 / ((m_NdValence + log(m_Row)) + m_Electronegativity))
+11,24.44022,m_NpUnfilled + ((d_023 + 12.253047) / (m_Row + (m_NpValence + m_NdValence)))
+12,24.205671,(m_NUnfilled * sqrt(m_NpValence)) + (d_023 / (m_NpValence + (m_Row + m_NdValence)))
+13,23.830378,(d_023 / ((m_NdValence + log(m_Row)) + m_Electronegativity)) + (sqrt(m_NdUnfilled) * m_NpUnfilled)
+14,23.204391,(m_NpUnfilled * sqrt(m_NdUnfilled)) + ((d_023 + 12.671123) / ((m_Row + m_NdValence) + m_NpValence))
+15,23.104801,(d_023 / (m_NpValence + (m_Row + m_NdValence))) + ((sqrt(m_NpValence) + sqrt(m_NdUnfilled)) * m_NpUnfilled)
