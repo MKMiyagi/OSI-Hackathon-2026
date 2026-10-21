@@ -2,7 +2,7 @@
 
 Anion = element with Pauling chi >= 2.0 (convention, not tuned); every other element is a cation/metal.
 Valence v_i: lanthanides/actinides 3; p-block group-10 (group 18 -> 8); s-block and d-block: group number
-(He -> 0). Bond capacity b_i = min(v, 8 - v) for p-block elements, v for all others.
+(He is p-block in pymatgen: v=8, b=0). Bond capacity b_i = min(v, 8 - v) for p-block elements, v for all others.
 """
 import numpy as np
 
