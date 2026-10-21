@@ -37,4 +37,4 @@ Recommended framing, adopted: *d_023 is a composition-only proxy for cohesive-en
 ## Action items for T1 before or after merge
 - Confirm `eval/compose_hv.py` predicts k from composition only (Codex risk 1). I read the diff for d_023 and the flags but did not audit `compose_hv.py`.
 - Add a d_023 coverage count (rows with NaN) to the cycle 020 report.
-- The ~0.8% prefactor/exponent were fit on train; the R² 0.81 is a val number already consulted in selection, so label it a development-set figure.
+- The prefactor and exponent were fit on train, but the R² 0.81 is a val number already consulted in selection, so label it a development-set figure.
