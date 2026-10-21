@@ -1,0 +1,38 @@
+{
+  "audit_skill": "citation-audit",
+  "verdict": "WARN",
+  "reason_code": "fixed_wrong_context_claim_and_version_caveats",
+  "summary": "3 entries exist with correct metadata; 1 quoted claim (Tehrani 'G/B as hardness proxy') was contradicted as worded and fixed; Tehrani numbers verified for the NSF-PAR copy only; Chen Eq. 11 verified for the arXiv v1 preprint.",
+  "audited_document": "wiki/COMPARISON_TO_LITERATURE.md",
+  "trace_path": ".aris/traces/citation-audit/2026-10-21_run01/reviewer_response.md",
+  "thread_id": "01a160c9-cce0-7052-8c01-e05ab3a5ab6b",
+  "reviewer_model": "gpt-6-astra (requested)",
+  "reviewer_reasoning": "xhigh",
+  "generated_at": "2026-10-21",
+  "details": {
+    "total_entries": 3,
+    "counts": {"KEEP": 3, "FIX": 0, "REPLACE": 0, "REMOVE": 0},
+    "per_entry": [
+      {"key": "mansouritehrani2018", "verdict": "KEEP", "axis_failures": ["CONTEXT"],
+       "uses": [
+         {"claim": "T1 3248 moduli extracted", "verdict": "SUPPORTED"},
+         {"claim": "T2 2572 after filtering", "verdict": "SUPPORTED"},
+         {"claim": "T3 150 descriptors = 34 compositional + 14 structural", "verdict": "SUPPORTED"},
+         {"claim": "T4 RBF SVR, 10-fold CV; 20-fold random split for GA selection", "verdict": "SUPPORTED"},
+         {"claim": "T5 B RMSECV 17.2 GPa, r2 0.94", "verdict": "SUPPORTED"},
+         {"claim": "T6 G RMSECV 16.5 GPa, r2 0.84", "verdict": "SUPPORTED"},
+         {"claim": "T7 used G/B as hardness proxy and no Chen formula", "verdict": "WRONG", "note": "G/B is discussed as a ductility indicator; wording fixed in the document"},
+         {"claim": "T8 no fold grouping described", "verdict": "SUPPORTED", "note": "text only; actual folds unknown"}
+       ]},
+      {"key": "chen2011hardness", "verdict": "KEEP", "axis_failures": [],
+       "uses": [
+         {"claim": "C1 Hv = 2(k^2 G)^0.585 - 3, Eq. (11)", "verdict": "SUPPORTED", "note": "arXiv v1 numbering; published numbering unverified"},
+         {"claim": "C2 preprint and published titles differ", "verdict": "SUPPORTED"}
+       ]},
+      {"key": "matminer_brgoch_superhard_training", "verdict": "KEEP", "axis_failures": [],
+       "uses": [
+         {"claim": "M1 2574 materials, references Tehrani 2018", "verdict": "SUPPORTED", "note": "paper says 2572; difference unexplained"}
+       ]}
+    ]
+  }
+}
