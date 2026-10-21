@@ -1,0 +1,61 @@
+run_id,seed,fold,n_test,n_tail,arm,window,complexity,inner_val_mae,test_mae,tail_mae,n_nonfinite,uses_desc,equation
+ncv_pilot_n5000_s0,0,0,427,20,median_const,9,0,4.931588401596996,4.7765612664455706,21.16692900704777,0,,5.627936
+ncv_pilot_n5000_s0,0,0,427,20,median_const,12,0,4.931588401596996,4.7765612664455706,21.16692900704777,0,,5.627936
+ncv_pilot_n5000_s0,0,0,427,20,median_const,15,0,4.931588401596996,4.7765612664455706,21.16692900704777,0,,5.627936
+ncv_pilot_n5000_s0,0,0,427,20,magpie,9,9,4.065611026705161,3.9937503896225093,14.577228007050598,0,,(m_NpUnfilled * m_NdUnfilled) + (630.05676 / (m_GSvolume_pa * m_NValence))
+ncv_pilot_n5000_s0,0,0,427,20,magpie,12,12,3.78511468178633,3.767750880595788,13.74235409938502,0,,(656.55975 / ((m_NValence - m_NfValence) * m_GSvolume_pa)) + (sqrt(m_NdUnfilled) * m_NpUnfilled)
+ncv_pilot_n5000_s0,0,0,427,20,magpie,15,14,3.7845179136983846,3.7978902510446537,13.565257648025323,0,,(m_NpUnfilled * m_NdUnfilled) + (387.59097 / ((m_NValence - m_NfValence) * (m_GSvolume_pa - log(m_MendeleevNumber))))
+ncv_pilot_n5000_s0,0,0,427,20,magpie+d_008,9,9,4.1216104592398155,3.917497555116269,15.120691353409814,0,,((312.87534 / m_NValence) / (m_GSvolume_pa + -4.922105)) + m_NUnfilled
+ncv_pilot_n5000_s0,0,0,427,20,magpie+d_008,12,12,3.7850749139895523,3.7676408399080126,13.743557236872174,0,,(m_NpUnfilled * sqrt(m_NdUnfilled)) + ((656.4643 / m_GSvolume_pa) / (m_NValence - m_NfValence))
+ncv_pilot_n5000_s0,0,0,427,20,magpie+d_008,15,12,3.7850749139895523,3.7676408399080126,13.743557236872174,0,,(m_NpUnfilled * sqrt(m_NdUnfilled)) + ((656.4643 / m_GSvolume_pa) / (m_NValence - m_NfValence))
+ncv_pilot_n5000_s0,0,0,427,20,magpie+d_008+d_018,9,9,4.122338868830508,3.920292917829045,15.09746683733864,0,,m_NUnfilled + ((316.3967 / m_NValence) / (m_GSvolume_pa - 4.8733063))
+ncv_pilot_n5000_s0,0,0,427,20,magpie+d_008+d_018,12,12,3.785064081483359,3.7676108654933222,13.743884964212834,0,,((656.4383 / m_GSvolume_pa) / (m_NValence - m_NfValence)) + (m_NpUnfilled * sqrt(m_NdUnfilled))
+ncv_pilot_n5000_s0,0,0,427,20,magpie+d_008+d_018,15,13,3.783026278979779,3.800961789825171,13.5508251857132,0,,((408.93893 / (m_GSvolume_pa - 3.7925947)) / (m_NValence - m_NfValence)) + (m_NpUnfilled * m_NdUnfilled)
+ncv_pilot_n5000_s0,0,1,421,26,median_const,9,0,3.9743799644916895,4.649233676977848,21.437354157673024,0,,5.813879
+ncv_pilot_n5000_s0,0,1,421,26,median_const,12,0,3.9743799644916895,4.649233676977848,21.437354157673024,0,,5.813879
+ncv_pilot_n5000_s0,0,1,421,26,median_const,15,0,3.9743799644916895,4.649233676977848,21.437354157673024,0,,5.813879
+ncv_pilot_n5000_s0,0,1,421,26,magpie,9,9,3.683195352123244,3.8245051655144597,13.35929897570697,0,,(625.48816 / (m_GSvolume_pa * m_NValence)) + (m_NpUnfilled * m_NdUnfilled)
+ncv_pilot_n5000_s0,0,1,421,26,magpie,12,11,3.4885564731490843,3.763276285006921,12.731338705741903,0,,(m_NpUnfilled * m_NdUnfilled) + (590.28735 / ((m_NValence - m_NfValence) * m_GSvolume_pa))
+ncv_pilot_n5000_s0,0,1,421,26,magpie,15,11,3.4885564731490843,3.763276285006921,12.731338705741903,0,,(m_NpUnfilled * m_NdUnfilled) + (590.28735 / ((m_NValence - m_NfValence) * m_GSvolume_pa))
+ncv_pilot_n5000_s0,0,1,421,26,magpie+d_008,9,6,3.7271899857126756,4.21188816724522,17.274545816283954,0,,exp((m_NUnfilled + 3.5647388) / m_Row)
+ncv_pilot_n5000_s0,0,1,421,26,magpie+d_008,12,10,3.711839333265491,3.8329234380667394,13.197897203776764,0,d_008,-169.26091 / ((m_NUnfilled - (exp(d_008) * m_NdValence)) - m_GSvolume_pa)
+ncv_pilot_n5000_s0,0,1,421,26,magpie+d_008,15,14,3.6578628467497336,3.814337055607861,11.83647296727427,0,d_008,-176.09163 / ((3.991063 - exp(d_008)) + ((m_NdValence * -2.9869468) + (m_NUnfilled - m_GSvolume_pa)))
+ncv_pilot_n5000_s0,0,1,421,26,magpie+d_008+d_018,9,9,3.683172945894057,3.824499214960786,13.359492063395042,0,,((625.47656 / m_GSvolume_pa) / m_NValence) + (m_NpUnfilled * m_NdUnfilled)
+ncv_pilot_n5000_s0,0,1,421,26,magpie+d_008+d_018,12,11,3.488474165530737,3.7632393263158366,12.732172999194587,0,,((590.24274 / m_GSvolume_pa) / (m_NValence - m_NfValence)) + (m_NdUnfilled * m_NpUnfilled)
+ncv_pilot_n5000_s0,0,1,421,26,magpie+d_008+d_018,15,11,3.488474165530737,3.7632393263158366,12.732172999194587,0,,((590.24274 / m_GSvolume_pa) / (m_NValence - m_NfValence)) + (m_NdUnfilled * m_NpUnfilled)
+ncv_pilot_n5000_s0,0,2,425,22,median_const,9,0,4.7865918174480315,5.063521767915295,22.740273140485638,0,,5.601618
+ncv_pilot_n5000_s0,0,2,425,22,median_const,12,0,4.7865918174480315,5.063521767915295,22.740273140485638,0,,5.601618
+ncv_pilot_n5000_s0,0,2,425,22,median_const,15,0,4.7865918174480315,5.063521767915295,22.740273140485638,0,,5.601618
+ncv_pilot_n5000_s0,0,2,425,22,magpie,9,9,3.6876043603917927,3.945476428311107,12.603861637301378,0,,m_NUnfilled + (((791.8804 / m_GSvolume_pa) + -19.33293) / m_NValence)
+ncv_pilot_n5000_s0,0,2,425,22,magpie,12,12,3.657539762821999,3.8242594016320957,12.357872335511633,0,,m_NUnfilled + ((((784.51715 - exp(m_NdUnfilled)) / m_GSvolume_pa) + -16.439314) / m_NValence)
+ncv_pilot_n5000_s0,0,2,425,22,magpie,15,15,3.3546506641067597,3.732335981957367,9.504071327162068,0,,m_NUnfilled + (((2845.7346 / (m_GSvolume_pa + exp(m_NdValence))) + 26.376017) / (exp(m_NpValence) + m_GSvolume_pa))
+ncv_pilot_n5000_s0,0,2,425,22,magpie+d_008,9,7,3.7776367255695487,4.05764518013453,14.373296949884285,0,,m_NUnfilled + ((500.0801 / m_GSvolume_pa) / m_NValence)
+ncv_pilot_n5000_s0,0,2,425,22,magpie+d_008,12,12,3.6571734209958624,3.838790812461952,13.749011271005408,0,,m_NUnfilled + (((387.26544 - exp(m_NdUnfilled)) / (m_GSvolume_pa - m_NUnfilled)) / m_NValence)
+ncv_pilot_n5000_s0,0,2,425,22,magpie+d_008,15,15,3.454735642505508,3.7388370507492703,10.241984724287082,0,,(((m_NUnfilled - m_Electronegativity) * m_Electronegativity) + (m_MendeleevNumber / (m_NValence - m_NfValence))) / (m_GSvolume_pa / 10.144119)
+ncv_pilot_n5000_s0,0,2,425,22,magpie+d_008+d_018,9,8,3.579575952305748,4.0620629301516225,14.47634958223032,0,d_008,m_NUnfilled + (381.68625 / exp(d_008 + m_Row))
+ncv_pilot_n5000_s0,0,2,425,22,magpie+d_008+d_018,12,11,3.5235960157885775,3.9663659912764686,13.659562658284727,0,d_008,((325.7185 / exp(d_008)) / (exp(m_Row) - m_NUnfilled)) + m_NUnfilled
+ncv_pilot_n5000_s0,0,2,425,22,magpie+d_008+d_018,15,15,3.480155629427835,3.8293438491059306,13.209467106026667,0,d_008,(240.08376 / (exp((d_008 / m_NsValence) + m_Row) - exp(m_NUnfilled * 0.41234887))) + m_NUnfilled
+ncv_pilot_n5000_s0,0,3,423,9,median_const,9,0,5.54714251580481,4.466273195780548,21.30892741685535,0,,5.975181
+ncv_pilot_n5000_s0,0,3,423,9,median_const,12,0,5.54714251580481,4.466273195780548,21.30892741685535,0,,5.975181
+ncv_pilot_n5000_s0,0,3,423,9,median_const,15,0,5.54714251580481,4.466273195780548,21.30892741685535,0,,5.975181
+ncv_pilot_n5000_s0,0,3,423,9,magpie,9,9,3.7364230028666072,3.6277565645306273,9.586755848176919,0,,m_NUnfilled + ((61534.75 / m_GSvolume_pa) / (m_CovalentRadius * m_NValence))
+ncv_pilot_n5000_s0,0,3,423,9,magpie,12,12,3.693506380364807,3.546420531015296,10.500200776622187,0,,m_NUnfilled + ((m_MendeleevNumber / exp(m_Row)) * ((m_NsValence * 2.2435725) - m_NpValence))
+ncv_pilot_n5000_s0,0,3,423,9,magpie,15,15,3.5978745996167376,3.4807484713604278,9.091140903755743,0,,(((m_NsValence * 2.0494692) - m_NpValence) * (sqrt(m_GSbandgap) + (m_MendeleevNumber / exp(m_Row)))) + m_NUnfilled
+ncv_pilot_n5000_s0,0,3,423,9,magpie+d_008,9,7,3.937143828884031,3.8130306879758744,13.329956943082781,0,,m_NUnfilled + ((1615.1982 / m_Number) / m_GSvolume_pa)
+ncv_pilot_n5000_s0,0,3,423,9,magpie+d_008,12,10,3.831919290859237,3.716155068813097,11.176212111113882,0,d_008,exp((5.7306714 - m_Row) - (d_008 / m_NsValence)) + m_NUnfilled
+ncv_pilot_n5000_s0,0,3,423,9,magpie+d_008,15,15,3.7324828442984024,3.549965722492463,11.024401244973046,0,d_008,log(m_NdUnfilled + 0.013149939) + (exp((8.266387 - (m_NsUnfilled + d_008)) / m_Row) + m_NpUnfilled)
+ncv_pilot_n5000_s0,0,3,423,9,magpie+d_008+d_018,9,7,3.937090569632259,3.812559409929142,13.33210311208302,0,,((1614.4495 / m_GSvolume_pa) / m_Number) + m_NUnfilled
+ncv_pilot_n5000_s0,0,3,423,9,magpie+d_008+d_018,12,10,3.8321365217429944,3.7168439883727733,11.165520313663867,0,d_008,m_NUnfilled + (308.45108 / exp((d_008 / m_NsValence) + m_Row))
+ncv_pilot_n5000_s0,0,3,423,9,magpie+d_008+d_018,15,15,3.6119651666733965,3.5423874430016085,8.70840486653049,0,d_008,((4.202215 - m_NpValence) * (sqrt(m_GSbandgap) + (m_MendeleevNumber / exp(m_Row)))) + (m_NUnfilled - d_008)
+ncv_pilot_n5000_s0,0,4,424,26,median_const,9,0,4.32897855620767,5.48974415334693,22.678226483687148,0,,5.415361
+ncv_pilot_n5000_s0,0,4,424,26,median_const,12,0,4.32897855620767,5.48974415334693,22.678226483687148,0,,5.415361
+ncv_pilot_n5000_s0,0,4,424,26,median_const,15,0,4.32897855620767,5.48974415334693,22.678226483687148,0,,5.415361
+ncv_pilot_n5000_s0,0,4,424,26,magpie,9,7,3.4460157288688573,4.3329227382908995,15.384106145638409,0,,((1422.9033 / m_GSvolume_pa) / m_Number) + m_NUnfilled
+ncv_pilot_n5000_s0,0,4,424,26,magpie,12,12,3.2871189852927825,3.9589913606325142,10.258119508397595,0,,(sqrt(m_NdUnfilled) * m_NpUnfilled) + (630.8878 / ((m_NValence - m_NfValence) * m_GSvolume_pa))
+ncv_pilot_n5000_s0,0,4,424,26,magpie,15,12,3.2871189852927825,3.9589913606325142,10.258119508397595,0,,(sqrt(m_NdUnfilled) * m_NpUnfilled) + (630.8878 / ((m_NValence - m_NfValence) * m_GSvolume_pa))
+ncv_pilot_n5000_s0,0,4,424,26,magpie+d_008,9,7,3.447645025308163,4.334052573394616,15.47927977020449,0,,m_NUnfilled + ((1407.3959 / m_Number) / m_GSvolume_pa)
+ncv_pilot_n5000_s0,0,4,424,26,magpie+d_008,12,7,3.447645025308163,4.334052573394616,15.47927977020449,0,,m_NUnfilled + ((1407.3959 / m_Number) / m_GSvolume_pa)
+ncv_pilot_n5000_s0,0,4,424,26,magpie+d_008,15,14,3.3537706909844434,4.008369755269443,13.433883333634062,0,d_008,((m_NUnfilled - (d_008 * 1.8032217)) * (sqrt(m_GSbandgap) - -0.6636436)) + (141.52022 / m_Number)
+ncv_pilot_n5000_s0,0,4,424,26,magpie+d_008+d_018,9,7,3.4459986661928608,4.332910906183593,15.383109447505289,0,,((1423.0657 / m_GSvolume_pa) / m_Number) + m_NUnfilled
+ncv_pilot_n5000_s0,0,4,424,26,magpie+d_008+d_018,12,10,3.3699279668869835,4.2001674294577755,13.621029586673362,0,d_008,((1969.0231 / m_Number) / (m_GSvolume_pa + exp(d_008))) + m_NUnfilled
+ncv_pilot_n5000_s0,0,4,424,26,magpie+d_008+d_018,15,10,3.3699279668869835,4.2001674294577755,13.621029586673362,0,d_008,((1969.0231 / m_Number) / (m_GSvolume_pa + exp(d_008))) + m_NUnfilled

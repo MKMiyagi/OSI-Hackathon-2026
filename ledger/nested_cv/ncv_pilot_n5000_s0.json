@@ -1,0 +1,1 @@
+{"run_id": "ncv_pilot_n5000_s0", "niterations": 5000, "maxsize": 15, "seed": 0, "procs": 4, "timeout": 900, "report": false, "outer_seed": 42, "n_rows": 2120, "n_groups": 1406, "total_seconds": 1087.6}

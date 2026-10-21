@@ -1,0 +1,15 @@
+complexity,loss,equation
+1,46.087597,7.061015
+2,44.174755,exp(m_NsValence)
+3,38.752743,129.20197 / m_GSvolume_pa
+5,32.961403,(103.71481 / m_Number) + m_NUnfilled
+6,32.091473,exp((m_NUnfilled + 3.3786306) / m_Row)
+7,29.856102,m_NUnfilled + ((500.2268 / m_GSvolume_pa) / m_NValence)
+8,28.627192,m_NUnfilled + (381.68625 / exp(d_008 + m_Row))
+9,28.377945,((1809.5704 / (m_GSvolume_pa + d_018)) / m_Number) + m_NUnfilled
+10,27.30072,m_NUnfilled + (296.82254 / exp((d_008 / m_NsValence) + m_Row))
+11,27.03636,((325.7185 / exp(d_008)) / (exp(m_Row) - m_NUnfilled)) + m_NUnfilled
+12,26.441174,m_NUnfilled + (266.44815 / (exp(m_Row + (d_008 / m_NsValence)) - m_NUnfilled))
+13,26.292854,m_NUnfilled + ((302.84485 / (exp(m_Row) - (m_NdUnfilled + m_NUnfilled))) / exp(d_008))
+14,25.872856,m_NUnfilled + (257.60214 / (exp(m_Row + (d_008 / m_NsValence)) - (m_NdUnfilled + m_NUnfilled)))
+15,25.636175,(240.08376 / (exp((d_008 / m_NsValence) + m_Row) - exp(m_NUnfilled * 0.41234887))) + m_NUnfilled
