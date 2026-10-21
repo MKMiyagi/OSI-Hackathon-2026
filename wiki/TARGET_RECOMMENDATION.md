@@ -1,5 +1,16 @@
 # Target decision (#2): T1 recommendation, 2026-10-21 11:00
 
+## Update 14:30: the experiment changed the recommendation
+Final recommendation: **keep `hv_chen` as the frozen target and search it directly, as now**, framed as a compact
+composition-based emulator of the DFT-derived Chen proxy. **Add d_023 (cohesive-energy density) to the search.** Run the
+Zhang 2021 measured-Hv external check once on Thursday. Drop the Chen(B, k) search route proposed below: in the
+experiment (wiki/T1_ROUTES.md) it added nothing beyond d_023.
+Evidence, seeds 0-1, same settings in every arm, formula picked on train:
+- direct + d_023 vs direct Magpie-only: c<=12 3.79 vs 3.92, c<=15 3.64 vs 3.88. Seed-stable.
+- Splitting into B and k only helps once B gets d_023, and then it roughly matches direct + d_023.
+The morning text below is kept as the record of the original argument.
+
+
 **Recommendation: keep `hv_chen` as the frozen *evaluation* target, switch the *search* to B and G (Hv = Chen of the
 two formulas), and add Zhang 2021 measured Hv as an external check scored once on Thursday.**
 Nothing frozen changes: same splits, same `score.py`, same val MAE vs `hv_chen`, so every ledger row stays comparable.
