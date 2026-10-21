@@ -36,3 +36,7 @@ Reviewer (codex, regular): composition-only, no leakage; plausible polarity prox
 ## cycle 009 — d_009 min valence-electron count x its atomic fraction, runs c009_s0 / c009_s1
 Per-seed best c<=9: 4.1947 / 4.1947, mean 4.1947; NO improvement vs best 4.1123 (streak 1/3). d_009 NOT selected: it appears in no Pareto equation of either seed.
 Reviewer (codex, regular): composition-only, no leakage; units OK (electrons/atom). Flagged: ties in NValence pick the first constituent (order-dependent when tied elements have different fractions) — known minor flaw, not fixed (descriptor failed anyway); trace constituents can switch the selected minimum abruptly; low NValence does not establish weakest bonding. min_i(x_i N_i) or sum_i x_i N_i are alternative readings. Non-selection shows no utility in this search, not physical invalidity.
+
+## cycle 010 — d_010 (harmonic-mean covalent radius, A) + d_011 (r_h^-2.5), runs c010_s0 / c010_s1
+Per-seed best c<=9: 4.1946 / 4.1946, mean 4.1946; NO improvement vs best 4.1123 (streak 2/3). Neither d_010 nor d_011 selected in any Pareto equation of either seed.
+Reviewer (codex, regular): composition-only, no leakage; units correct (A; A^-2.5, not GPa); harmonic radius is a weak bond-length proxy (ignores pairwise radius sums, connectivity, coordination; Gao also needs electron density/covalency). Recommends RETIRING this family unless structure-derived bond lengths become available. Marked failed.
