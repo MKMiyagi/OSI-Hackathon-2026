@@ -2,14 +2,18 @@
 
 Rationale: an elastic modulus is a curvature of energy per volume, so B ~ E_coh / V (universal
 binding-energy relation, Rose, Smith, Guinea & Ferrante 1984). E_coh,i is the elemental
-cohesive energy (Kittel; matminer utils/data_files/cohesive_energies.json, which covers every
-element in the dataset), averaged with atomic fractions x_i. V is the Magpie fraction-weighted
+cohesive energy (eV/atom) from matminer utils/data_files/cohesive_energies.json, a fixed external table
+independent of this dataset. Provenance per matminer.utils.data.CohesiveEnergyData: KnowledgeDoor Cohesive Energy
+Handbook, from C. Kittel, Introduction to Solid State Physics, 8th ed. (Wiley 2005, ISBN 978-0-471-41526-8).
+Averaged with atomic fractions x_i. V is the Magpie fraction-weighted
 ground-state volume per atom (A^3), so 1 eV/A^3 = 160.2 GPa. This is the only descriptor with the
 target's dimension (it matters under --dimensionless-constants; plain --units lets constants carry units).
 The table covers every element in the full matminer dataset; a composition with an element missing from it
 (H, He, Pm, At, Fr, Pa) gets NaN rather than an exception.
 Units: GPa (UNITS = "Pa" for PySR --units; only the dimension matters).
-Expected sign: positive on B and G, power ~1 (train-only fit B = 3.26 d_023^0.994).
+Expected sign: positive on B and G, power ~1 (fit on train: B = 3.26 d_023^0.994; its val R^2 0.81 is a
+development-set figure). Not label leakage: no B, G, split or target information enters (round-3 Codex verdict,
+wiki/REVIEW_PR12.md).
 Uses df["comp"] and df["m_GSvolume_pa"].
 """
 import json

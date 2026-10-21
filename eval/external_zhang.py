@@ -18,7 +18,7 @@ Materials Project moduli cache data/raw/external/zhang_mp_elasticity.csv.
  3. Subsets: all = every cleaned composition; novel = compositions whose sorted element set (the make_splits.py group
     key) appears in neither data/splits/train.csv nor data/splits/val.csv.
  4. Predictors, each a function of composition only (the comparator also uses DFT moduli):
-      chen_dft    chen_hardness(G_vrh, K_vrh) from scripts/make_splits.py on Materials Project moduli: the lowest-
+      chen_dft    chen_hardness(G_vrh, K_vrh) (eval/chen.py, = scripts/make_splits.py) on Materials Project moduli: the lowest-
                   energy_above_hull non-deprecated MP entry with that reduced formula that has elasticity data
                   (fractional stoichiometries cannot match). Defined only where K_vrh > 0 and G_vrh > 0. Not clipped,
                   exactly like the hv_chen training target.
@@ -66,7 +66,7 @@ sys.path.insert(0, str(ROOT))
 from eval.score import eval_equation  # noqa: E402
 from eval.tehrani_baseline import element_group  # noqa: E402
 from scripts.get_external import DATA_CSV, MP_CSV, XLSX, clean_formula  # noqa: E402
-from scripts.make_splits import chen_hardness  # noqa: E402
+from eval.chen import chen_hardness  # noqa: E402
 from sr.run_pysr import DERIVED_TARGETS, add_descriptors, featurize  # noqa: E402
 
 LABELS = {

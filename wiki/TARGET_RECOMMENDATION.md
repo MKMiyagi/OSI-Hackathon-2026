@@ -29,7 +29,7 @@ Nothing frozen changes: same splits, same `score.py`, same val MAE vs `hv_chen`,
    A 15-node formula has to reproduce both composition -> moduli *and* Chen's G^1.76 B^-1.17 nonlinearity.
 2. **B is learnable from composition with a law.** Train-only fit: **B = 3.26 (E_coh/V)^0.994 GPa** (E_coh = composition-
    weighted Kittel cohesive energy, V = Magpie mean volume, E/V in eV/A^3 x 160.2). The exponent is 1 as dimensional
-   analysis predicts (modulus ~ energy density). Val R^2 0.81 from one descriptor; SVR gets 0.91, so there is room for
+   analysis predicts (modulus ~ energy density). Val R^2 0.81 (development-set figure) from one descriptor; SVR gets 0.91, so there is room for
    corrections. It is the first quantity in the project with the target's units.
 3. **The B,G route costs nothing in accuracy:** SVR via log B, log G -> Chen = 2.84 vs 2.82 direct.
 4. **What's missing is the Pugh ratio.** With B and G both ~ E_coh/V, k = G/B is constant and Chen gives 4.45. So the

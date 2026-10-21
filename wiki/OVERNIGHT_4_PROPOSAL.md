@@ -1,12 +1,16 @@
 # Overnight 4 proposal (T1, 2026-10-21) — for Matthew to accept, edit or reject
 
-**Dependency:** d_023-d_027 and the `run_pysr.py` flags live on `t1/wed` (PR #12). The agent branch needs them:
-merge #12, or branch `agent/overnight-2` from `t1/wed`.
+**Dependency:** met. PR #12 was merged 2026-10-21 14:50, so d_023-d_027 and the `run_pysr.py` flags are on main.
 
 ## Why
 T1's afternoon experiment (wiki/T1_ROUTES.md) found that **d_023 = cohesive-energy density** lowers the whole direct-Hv
 Pareto front. It came from 3 seeds at ~4-5k iterations, L1 loss and `--units`, on T1's laptop. That is not the adopted
 cycle protocol, so it does not count under the CLAUDE.md rule yet. Tonight's job is to test it under that protocol.
+
+**Update after the PR #12 merge:** cycle 020 (d_023, default settings, 22k iterations, 3 seeds) is running on T1's
+laptop as `t1_c020_s0..s2`, with the timeout raised to 6000 s so all 22k iterations complete. It is scored with the
+CLAUDE.md headline rule but NOT appended to ledger/results.csv. Report: wiki/CYCLE_020_T1.md. The agent can start at
+cycle 021, or rerun 020 on its own machine as a replication.
 
 ## Queue (in priority order; standard CLAUDE.md cycle unless noted)
 | cycle | descriptors | settings | purpose |

@@ -12,6 +12,9 @@ requested iterations; every arm gets the same wall-clock budget. Arms:
 - B: Magpie only (t1_B), and + d_023 (t1_Bd23)
 - k = G/B: Magpie only (t1_k), and + d_008 (t1_kd08)
 - composed: Hv = Chen(k B, B); the budget counts c_B + c_k
+**Leakage checks:** d_023 is finite for all 1746 train and 374 val rows (0 NaN). In the Chen route, B and k are
+predicted from composition by the fitted equations; true DFT B, G and k are never inputs to an Hv prediction
+(wiki/REVIEW_PR12.md, Codex risk 1; see the eval/compose_hv.py docstring).
 **Search-depth check:** the Magpie-only direct arm at ~4-5k iterations nearly coincides with the stored 22k-iteration
 9-seed reference (figure, gray vs blue). The shorter search is not what makes d_023 look good.
 
