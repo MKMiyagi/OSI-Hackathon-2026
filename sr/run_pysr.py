@@ -35,7 +35,9 @@ MAGPIE_UNITS = {
     "m_GSbandgap": "J",
 }
 DESCRIPTOR_UNITS = {"d_002": "m^-3", "d_006": "m^-2", "d_010": "m", "d_011": "m^-2.5", "d_013": "m^-3"}
-TARGET_UNITS = {"hv_chen": "Pa", "bulk_modulus": "Pa", "shear_modulus": "Pa"}
+TARGET_UNITS = {"hv_chen": "Pa", "bulk_modulus": "Pa", "shear_modulus": "Pa", "pugh_k": "1"}
+# targets computed from split columns (not scoreable by eval/score.py; use eval/compose_hv.py)
+DERIVED_TARGETS = {"pugh_k": lambda d: d.shear_modulus / d.bulk_modulus}
 LOSSES = {"L2": None, "L1": "L1DistLoss()"}  # None = PySR default (squared error)
 
 
@@ -124,7 +126,7 @@ def main():
         raise SystemExit(f"--exclude-features names not in feature set: {unknown}")
     X = X.drop(columns=exclude)
 
-    y = df[args.target].astype(float).values
+    y = (DERIVED_TARGETS[args.target](df) if args.target in DERIVED_TARGETS else df[args.target]).astype(float).values
     Xv = X.astype(float).values
     keep = np.isfinite(y) & np.isfinite(Xv).all(axis=1)
     print(f"rows kept: {keep.sum()}/{len(keep)}; features: {X.shape[1]}")
