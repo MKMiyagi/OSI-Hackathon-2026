@@ -49,3 +49,7 @@ STOP: 3 consecutive non-improving cycles (009, 010, 011). Queue item f (d_013, O
 
 # Overnight 3 (see wiki/OVERNIGHT_3_SUMMARY.md when written)
 Phase 1 (d_008 ablation, 5 seeds) and Phase 2 (9 reference seeds): see wiki/D008_VALIDATION.md and wiki/DECISIONS.md "Metric". Reviewer (codex regular) on D008_VALIDATION: numbers reproduce; verdict softened, unpaired Welch CIs added, pairing caveat, textual-vs-algebraic structure caveat; no leakage seen.
+
+## cycle 012 — d_014 sum x_i (chi_max - chi_i), runs c012_s0/s1/s2 (3 seeds; scores c<=9 and c<=12)
+Best c<=9 per seed 4.1946/4.1947/4.1947, mean 4.1947 (paired vs v008_wo s0-2: -0.0001). Best c<=12 3.9114/3.9114/3.9732, mean 3.9320 (paired -0.048, i.e. the same Magpie-only equations the reference finds; not attributable to d_014). Selected: seeds 1 and 2 (min complexity 8, `m_NUnfilled + 262.79/exp(d_014 + m_Row)`, val 4.3247 — worse than the Magpie c9 4.1946 and than d_008's same-form c8 4.0300); seed 0 never.
+Reviewer (codex regular): plausible heuristic, dimensionless, no leakage (composition-only; repeated val selection risk); trace high-chi constituents move chi_max; no demonstrated gain; deprioritize.
