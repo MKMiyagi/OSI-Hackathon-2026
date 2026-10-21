@@ -1,8 +1,9 @@
 # OSI-Hackathon-2026 (hardness-law) — agent rules
 
 ## Goal
-Find a compact, physically interpretable composition-only formula for Vickers hardness
-that beats the baseline on held-out chemical families.
+Find a compact, composition-only emulator of the DFT-derived Chen hardness proxy (`hv_chen`), compared against
+the Tehrani-style composition -> B,G -> Chen pipeline. Not a claim of measured hardness or of beating Chen itself;
+val is a reused development set (see wiki/RESEARCH_REVIEW_3_VERDICT.md).
 
 Baseline: a composition-only model (Tehrani 2018 SVM: composition -> B,G -> Chen Hv), NOT Chen
 itself, because Chen (2011) requires B and G, which need DFT. Target for now is `hv_chen`
