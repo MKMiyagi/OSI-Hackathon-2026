@@ -20,3 +20,11 @@ Reviewer (codex, medium): plausible Gao-style covalency proxy, ignores stoichiom
 ## cycle 006 — d_006 n_e^(2/3)·exp(-1.191 f_i) (Gao composite), run c006
 best val_mae 4.0475 (complexity 12). d_006 NOT selected. NO improvement vs 3.9709 (streak 3/3 -> STOP condition).
 Reviewer (codex, medium): heuristic, not faithful Gao (averaged elemental volumes, range-only ionicity); output units (e/A^3)^(2/3) not GPa; no leakage; note added descriptors can change the joint finite-row filter; recommends pausing this family.
+
+# Overnight 2 (hardened search: niter 22000, maxsize 15, seeds 0/1, m_MeltingT & m_SpaceGroupNumber excluded; ~11 min/fit)
+Cycle score = mean over 2 seeds of best val_mae at complexity <= 9. Improvement needs >= 0.05 drop vs best previous. Reference = d_003 under this search (t003b_s0/s1): 4.1946 / 4.1946, mean 4.1946. (Calibration note: at niter 300 a fit took 6-10 s, not minutes; niter was raised to 22000 to hit the 8-12 min target. t003_s0/s1 at niter 300 are kept in the ledger, c<=9 best 4.111 / 4.134, not used as reference.)
+
+## cycle 007 — d_007 B/C/N fraction, O excluded, runs c007_s0 / c007_s1
+Per-seed best c<=9: 4.1947 / 4.1946, mean 4.1946; NO improvement (streak 1/3). d_007 NOT selected at c<=9 in either seed. Seed 0 used it at c11, c13-15 (e.g. exp(d_007)*m_NUnfilled, c15 val 3.8898 vs reference 3.8923 at c15: indistinguishable); seed 1 never.
+Both seeds (and the reference) converge to the same c<=9 equation (MendeleevNumber/(GSvolume*NValence)+NUnfilled), so c<=9 scores are nearly deterministic: the metric cannot move unless a descriptor displaces that equation.
+Reviewer (codex, regular): composition-only, dimensionless, no leakage; physically plausible but non-specific (cannot distinguish allotropes; excluding O may drop relevant compounds); no c<=9 evidence either way on whether O drove d_003 (the d_003 signal is not shown to be real or fake).

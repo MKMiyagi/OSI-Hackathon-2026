@@ -1,2 +1,3 @@
 cycle,descriptor,runs,per_seed_best,mean_best,best_previous,improved,streak,reference
 ref_d003,d_003 reference (hardened search),t003b_s0+t003b_s1,4.1946/4.1946,4.1946,nan,True,0,True
+007,d_007 B/C/N fraction (no O),c007_s0+c007_s1,4.1947/4.1946,4.1946,4.1946,False,1,False
