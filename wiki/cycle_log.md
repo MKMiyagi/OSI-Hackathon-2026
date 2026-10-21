@@ -40,3 +40,9 @@ Reviewer (codex, regular): composition-only, no leakage; units OK (electrons/ato
 ## cycle 010 — d_010 (harmonic-mean covalent radius, A) + d_011 (r_h^-2.5), runs c010_s0 / c010_s1
 Per-seed best c<=9: 4.1946 / 4.1946, mean 4.1946; NO improvement vs best 4.1123 (streak 2/3). Neither d_010 nor d_011 selected in any Pareto equation of either seed.
 Reviewer (codex, regular): composition-only, no leakage; units correct (A; A^-2.5, not GPa); harmonic radius is a weak bond-length proxy (ignores pairwise radius sums, connectivity, coordination; Gao also needs electron density/covalency). Recommends RETIRING this family unless structure-derived bond lengths become available. Marked failed.
+
+## cycle 011 — d_012 Pugh proxy k=1/(1+10*MAD(MendeleevNumber)/103), runs c011_s0 / c011_s1
+Per-seed best c<=9: 4.1946 / 4.2489, mean 4.2218; NO improvement vs 4.1123 (streak 3/3 -> STOP). Seed 0 never used d_012. Seed 1 used it at c9-15 (7/13 Pareto points), but its c<=9 best (4.2489) is WORSE than the Magpie-only 4.1946; its c14 reached 3.9587 (outside the window).
+Reviewer (codex, regular): heuristic, not an established G/B estimator; dimensionless; no direct leakage; the scale 10 (and 103) is an undocumented hyperparameter, i.e. an implicit fit if tuned on val (it was fixed a priori here, not tuned); c<=9 evidence negative.
+
+STOP: 3 consecutive non-improving cycles (009, 010, 011). Queue item f (d_013, O-corrected valence electron density) not run. No STOP file; time ~22:30 local, before 06:00.

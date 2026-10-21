@@ -4,3 +4,4 @@ ref_d003,d_003 reference (hardened search),t003b_s0+t003b_s1,4.1946/4.1946,4.194
 008,d_008 electronegativity range,c008_s0+c008_s1,4.1946/4.0300,4.1123,4.1946,True,0,False
 009,d_009 min valence e- x fraction,c009_s0+c009_s1,4.1947/4.1947,4.1947,4.1123,False,1,False
 010,d_010+d_011 harmonic covalent radius,c010_s0+c010_s1,4.1946/4.1946,4.1946,4.1123,False,2,False
+011,d_012 Pugh proxy from Mendeleev spread,c011_s0+c011_s1,4.1946/4.2489,4.2218,4.1123,False,3,False
