@@ -1,0 +1,15 @@
+complexity,loss,equation
+1,46.655293,7.2284827
+2,45.27514,exp(m_NsValence)
+3,38.433487,131.29352 / m_GSvolume_pa
+5,32.31155,m_NUnfilled + (106.60003 / m_Number)
+6,32.25366,243.89401 / (m_GSvolume_pa * log(m_NValence))
+7,29.175512,((513.68414 / m_GSvolume_pa) / m_NValence) + m_NUnfilled
+8,28.67678,(381.80258 / exp(m_Row + d_008)) + m_NUnfilled
+9,27.804676,m_NUnfilled + (((m_MendeleevNumber / 0.117898) / m_GSvolume_pa) / m_NValence)
+10,26.451317,m_NUnfilled + (302.6485 / exp((d_008 / m_NsValence) + m_Row))
+11,26.26623,((307.78973 / exp(m_Row + d_008)) + m_NUnfilled) * exp(d_007)
+12,25.377823,m_NUnfilled + (281.9289 / exp(((d_008 - d_007) / m_NsValence) + m_Row))
+13,25.174402,(m_NUnfilled * exp(d_007)) + (283.67596 / exp((d_008 / m_NsValence) + m_Row))
+14,24.978159,m_NUnfilled + (271.2856 / (exp(((d_008 - d_007) / m_NsValence) + m_Row) - m_NdUnfilled))
+15,24.773352,(253.51994 / (exp((d_008 / m_NsValence) + m_Row) - m_NUnfilled)) + (m_NUnfilled * exp(d_007))
