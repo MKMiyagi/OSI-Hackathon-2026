@@ -1,0 +1,14 @@
+complexity,loss,equation
+1,46.65529,7.2291136
+2,45.27514,exp(m_NsValence)
+3,38.433487,131.2932 / m_GSvolume_pa
+5,32.31155,(106.598335 / m_Number) + m_NUnfilled
+6,32.25366,243.89412 / (log(m_NValence) * m_GSvolume_pa)
+7,29.175518,((513.6434 / m_NValence) / m_GSvolume_pa) + m_NUnfilled
+9,27.804676,(((m_MendeleevNumber / m_GSvolume_pa) / 0.117892444) / m_NValence) + m_NUnfilled
+10,26.769691,m_NUnfilled + (((3.5437613 - d_017) * m_MendeleevNumber) / exp(m_Row))
+11,26.228388,((593.763 / m_NValence) / (m_GSvolume_pa - m_NfValence)) + (m_NdUnfilled * m_NpUnfilled)
+12,26.003466,m_NUnfilled + (((3.470462 - d_017) / (exp(m_Row) - m_NdUnfilled)) * m_MendeleevNumber)
+13,25.185835,(((m_MendeleevNumber / m_NValence) / 0.103091136) / (m_GSvolume_pa - m_NfValence)) + (m_NpUnfilled * m_NdUnfilled)
+14,24.894747,(((3.1725066 - d_017) * m_MendeleevNumber) / (exp(m_Row) - (m_NdUnfilled * 2.9772243))) + m_NUnfilled
+15,24.265858,(sqrt((m_GSbandgap + 0.39191502) * m_NdUnfilled) + (m_MendeleevNumber / exp(m_Row))) * (3.8165925 - d_017)
