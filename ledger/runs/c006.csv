@@ -1,0 +1,11 @@
+complexity,loss,equation
+1,46.655376,7.2189817
+2,44.853188,log(m_MeltingT)
+3,38.435474,132.05495 / m_GSvolume_pa
+4,33.240025,sqrt(m_MeltingT / m_Number)
+6,30.681442,(sqrt(m_MeltingT) - m_NdValence) / m_Row
+7,29.651823,(sqrt(m_MeltingT) / m_Row) - sqrt(m_NdValence)
+8,28.845015,((sqrt(m_MeltingT) / m_Row) - m_Row) / 0.72786117
+9,28.740295,((sqrt(m_MeltingT) / m_Row) + m_NpUnfilled) - log(m_Number)
+10,27.707825,(((sqrt(m_MeltingT) / m_Row) - m_Row) / 0.81641304) + m_NpUnfilled
+12,27.574272,(((m_NpUnfilled + (sqrt(m_MeltingT) / m_Row)) - m_Row) / 0.79118794) - 0.79118794

@@ -1,0 +1,10 @@
+complexity,loss,equation
+1,46.655308,7.228255
+2,44.853188,log(m_MeltingT)
+3,37.27218,m_SpaceGroupNumber / m_Number
+4,33.240025,sqrt(m_MeltingT / m_Number)
+6,30.681442,(sqrt(m_MeltingT) - m_NdValence) / m_Row
+7,29.651823,(sqrt(m_MeltingT) / m_Row) - sqrt(m_NdValence)
+8,28.224728,(sqrt(m_MeltingT) / (m_Row - 0.865107)) + -4.7551064
+9,28.204971,(sqrt(m_MeltingT) / (m_Row - sqrt(0.8328498))) + -4.7551064
+10,27.25574,(sqrt(m_MeltingT) / (m_Row - (d_005 + 0.17856257))) + -4.7551064

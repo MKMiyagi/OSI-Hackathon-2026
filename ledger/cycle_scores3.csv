@@ -1,0 +1,9 @@
+cycle,descriptor,runs,best_c9_per_seed,mean_c9,best_c12_per_seed,mean_c12,paired_diff_c9_vs_v008_wo,paired_diff_c12_vs_v008_wo,selected_seeds,min_complexity_used
+012,d_014 EN deviation from max,c012_s0+c012_s1+c012_s2,4.1946/4.1947/4.1947,4.1947,3.9114/3.9114/3.9732,3.9320,-0.0001,-0.0482,False/True/True,None/8/8
+014,d_016 Allen EN range,c014_s0+c014_s1+c014_s2,4.1946/4.1947/4.1946,4.1946,3.9114/3.9114/3.9114,3.9114,-0.0001,-0.0688,True/False/False,10/None/None
+015,d_008+d_007 EN range + BCN fraction,c015_s0+c015_s1+c015_s2,4.0300/4.0300/4.1946,4.0849,4.0300/3.9172/4.0520,3.9997,-0.1099,+0.0195,True/True/False,8/8/None
+016,d_013 O-corrected valence e- density,c016_s0+c016_s1+c016_s2,4.2071/4.1947/4.1947,4.1988,3.9770/4.0522/3.9769,4.0020,+0.0041,+0.0218,False/False/False,None/None/None
+017,d_008+d_013,c017_s0+c017_s1+c017_s2,4.0301/4.2071/4.0299,4.0890,4.0301/3.9114/4.0299,3.9905,-0.1057,+0.0103,True/False/True,8/None/8
+018,d_017 anion-like EN-weighted content,c018_s0+c018_s1+c018_s2,4.0651/4.1946/4.1946,4.1514,3.7722/4.0828/4.0820,3.9790,-0.0433,-0.0012,True/True/True,9/10/10
+019,d_018 squared EN range,c019_s0+c019_s1+c019_s2,4.1526/4.1832/4.0025,4.1128,4.0454/4.0250/3.8741,3.9815,-0.0820,+0.0013,True/True/True,9/9/9
+013,d_015 Pauling ionic character,c013_s0+c013_s1+c013_s2,4.1946/4.1946/4.1946,4.1946,4.0855/3.9616/4.0521,4.0331,-0.0001,+0.0529,True/True/False,8/8/None

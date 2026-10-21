@@ -1,0 +1,15 @@
+complexity,loss,equation
+1,46.655293,7.2277846
+2,45.27514,exp(m_NsValence)
+3,38.433483,131.29315 / m_GSvolume_pa
+5,32.31155,m_NUnfilled + (106.58127 / m_Number)
+6,32.25366,(243.89484 / log(m_NValence)) / m_GSvolume_pa
+7,29.175518,((513.6434 / m_GSvolume_pa) / m_NValence) + m_NUnfilled
+8,28.676779,m_NUnfilled + (381.72168 / exp(d_008 + m_Row))
+9,27.804676,(((m_MendeleevNumber / m_NValence) / m_GSvolume_pa) / 0.117884636) + m_NUnfilled
+10,26.451313,m_NUnfilled + (302.76862 / exp((d_008 / m_NsValence) + m_Row))
+11,26.228348,(m_NdUnfilled * m_NpUnfilled) + ((593.0108 / (m_GSvolume_pa - m_NfValence)) / m_NValence)
+12,25.616268,m_NUnfilled + (272.12787 / (exp((d_008 / m_NsValence) + m_Row) - m_NUnfilled))
+13,25.185833,(m_NdUnfilled * m_NpUnfilled) + ((m_MendeleevNumber * (9.7052 / m_NValence)) / (m_GSvolume_pa - m_NfValence))
+14,24.38222,m_NUnfilled + (((2640.964 / (m_GSvolume_pa + exp(m_NdValence + d_008))) + 28.678684) / m_GSvolume_pa)
+15,24.370382,(exp(m_GSmagmom) + ((2929.2 / m_GSvolume_pa) / (exp(d_008 + m_NdValence) + m_GSvolume_pa))) + m_NUnfilled

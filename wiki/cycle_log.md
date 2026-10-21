@@ -1,0 +1,83 @@
+# Overnight 1 cycle log
+Knee metric = best val_mae among Pareto points (maxsize 12, niter 40). Reference before night: 4.2583 (smoke_001), train-mean baseline 5.2589.
+
+## cycle 002 — d_002 valence electron density (m_NValence/m_GSvolume_pa), run c002
+best val_mae 3.9996 (complexity 7, Magpie-only: MeltingT/Row^2). d_002 NOT selected by PySR. Improved vs 4.2583.
+Reviewer (codex, medium): plausible, units OK (e/A^3), no leakage. Notes: ratio of means, PySR can already build it from existing features; nonselection doesn't refute physics; the MAE gain is not attributable to d_002. Caveat: target is Chen-derived.
+
+## cycle 003 — d_003 light-element (B,C,N,O) atomic fraction, run c003
+best val_mae 3.9709 (complexity 7, Magpie-only: MeltingT/Number + NpUnfilled). d_003 NOT selected. Improved vs 3.9996 (tiny; search noise, not attributable to d_003).
+Reviewer (codex, medium): coarse but plausible; including O weakens rationale (ionic oxides) — test B/C/N separately; units fine; no leakage. No demonstrated incremental benefit.
+
+## cycle 004 — d_004 d-block transition-metal fraction (metallicity proxy), run c004
+best val_mae 4.0376 (complexity 9). d_004 NOT selected. NO improvement vs 3.9709 (non-improving streak 1/3).
+Reviewer (codex, medium): weak metallicity proxy; hard TM carbides/nitrides/borides make negative sign non-universal; units fine; no leakage; docstring element-range wording misleading (fixed). Sign is a hypothesis, not a constraint.
+
+## cycle 005 — d_005 Gao ionicity penalty exp(-1.191 f_i), run c005
+best val_mae 3.9753 (complexity 10; USES d_005: sqrt(MeltingT)/(Row-(d_005+0.1786)) - 4.755). NO improvement vs 3.9709 (streak 2/3). First descriptor PySR actually selected.
+Reviewer (codex, medium): plausible Gao-style covalency proxy, ignores stoichiometry/bond density; dimensionless; fitted equation not dimensionally explicit (sqrt(K) mixed with dimensionless; sqrt(MeltingT) has no unit-consistent meaning); possible unstable denominator (Row - d_005 - 0.18); no leakage. No demonstrated incremental benefit.
+
+## cycle 006 — d_006 n_e^(2/3)·exp(-1.191 f_i) (Gao composite), run c006
+best val_mae 4.0475 (complexity 12). d_006 NOT selected. NO improvement vs 3.9709 (streak 3/3 -> STOP condition).
+Reviewer (codex, medium): heuristic, not faithful Gao (averaged elemental volumes, range-only ionicity); output units (e/A^3)^(2/3) not GPa; no leakage; note added descriptors can change the joint finite-row filter; recommends pausing this family.
+
+# Overnight 2 (hardened search: niter 22000, maxsize 15, seeds 0/1, m_MeltingT & m_SpaceGroupNumber excluded; ~11 min/fit)
+Cycle score = mean over 2 seeds of best val_mae at complexity <= 9. Improvement needs >= 0.05 drop vs best previous. Reference = d_003 under this search (t003b_s0/s1): 4.1946 / 4.1946, mean 4.1946. (Calibration note: at niter 300 a fit took 6-10 s, not minutes; niter was raised to 22000 to hit the 8-12 min target. t003_s0/s1 at niter 300 are kept in the ledger, c<=9 best 4.111 / 4.134, not used as reference.)
+
+## cycle 007 — d_007 B/C/N fraction, O excluded, runs c007_s0 / c007_s1
+Per-seed best c<=9: 4.1947 / 4.1946, mean 4.1946; NO improvement (streak 1/3). d_007 NOT selected at c<=9 in either seed. Seed 0 used it at c11, c13-15 (e.g. exp(d_007)*m_NUnfilled, c15 val 3.8898 vs reference 3.8923 at c15: indistinguishable); seed 1 never.
+Both seeds (and the reference) converge to the same c<=9 equation (MendeleevNumber/(GSvolume*NValence)+NUnfilled), so c<=9 scores are nearly deterministic: the metric cannot move unless a descriptor displaces that equation.
+Reviewer (codex, regular): composition-only, dimensionless, no leakage; physically plausible but non-specific (cannot distinguish allotropes; excluding O may drop relevant compounds); no c<=9 evidence either way on whether O drove d_003 (the d_003 signal is not shown to be real or fake).
+
+## cycle 008 — d_008 Pauling electronegativity range (max-min), runs c008_s0 / c008_s1
+Per-seed best c<=9: 4.1946 / 4.0300, mean 4.1123; IMPROVED by 0.082 vs 4.1946 (streak reset to 0). The gain is ONE seed: seed 1 found c8 `m_NUnfilled + exp((5.9447 - m_Row) - d_008)` (val 4.0300), selecting d_008. Seed 0 at c<=9 reverted to the usual Magpie equation (4.1946, d_008 unused) but selected d_008 at c10-15 (c10 val 3.9671, `162.18/((m_NdValence*exp(d_008)) + m_GSvolume_pa - m_NUnfilled)`), outside the c<=9 scoring window. So d_008 was selected in both seeds, but the cycle score rests on one seed.
+Reviewer (codex, regular): composition-only, no leakage; plausible polarity proxy, docstring overclaims (extreme elements need not bond), stoichiometry ignored; exp(-d_008) dimensionally valid (dimensionless Pauling units, implicit 1-unit decay scale) but fitted formula needs implicit GPa calibration; the with/without comparison is across different searches, not a controlled ablation; seed-sensitive association, not established ionicity physics; repeated val selection can overfit.
+
+## cycle 009 — d_009 min valence-electron count x its atomic fraction, runs c009_s0 / c009_s1
+Per-seed best c<=9: 4.1947 / 4.1947, mean 4.1947; NO improvement vs best 4.1123 (streak 1/3). d_009 NOT selected: it appears in no Pareto equation of either seed.
+Reviewer (codex, regular): composition-only, no leakage; units OK (electrons/atom). Flagged: ties in NValence pick the first constituent (order-dependent when tied elements have different fractions) — known minor flaw, not fixed (descriptor failed anyway); trace constituents can switch the selected minimum abruptly; low NValence does not establish weakest bonding. min_i(x_i N_i) or sum_i x_i N_i are alternative readings. Non-selection shows no utility in this search, not physical invalidity.
+
+## cycle 010 — d_010 (harmonic-mean covalent radius, A) + d_011 (r_h^-2.5), runs c010_s0 / c010_s1
+Per-seed best c<=9: 4.1946 / 4.1946, mean 4.1946; NO improvement vs best 4.1123 (streak 2/3). Neither d_010 nor d_011 selected in any Pareto equation of either seed.
+Reviewer (codex, regular): composition-only, no leakage; units correct (A; A^-2.5, not GPa); harmonic radius is a weak bond-length proxy (ignores pairwise radius sums, connectivity, coordination; Gao also needs electron density/covalency). Recommends RETIRING this family unless structure-derived bond lengths become available. Marked failed.
+
+## cycle 011 — d_012 Pugh proxy k=1/(1+10*MAD(MendeleevNumber)/103), runs c011_s0 / c011_s1
+Per-seed best c<=9: 4.1946 / 4.2489, mean 4.2218; NO improvement vs 4.1123 (streak 3/3 -> STOP). Seed 0 never used d_012. Seed 1 used it at c9-15 (7/13 Pareto points), but its c<=9 best (4.2489) is WORSE than the Magpie-only 4.1946; its c14 reached 3.9587 (outside the window).
+Reviewer (codex, regular): heuristic, not an established G/B estimator; dimensionless; no direct leakage; the scale 10 (and 103) is an undocumented hyperparameter, i.e. an implicit fit if tuned on val (it was fixed a priori here, not tuned); c<=9 evidence negative.
+
+STOP: 3 consecutive non-improving cycles (009, 010, 011). Queue item f (d_013, O-corrected valence electron density) not run. No STOP file; time ~22:30 local, before 06:00.
+
+# Overnight 3 (see wiki/OVERNIGHT_3_SUMMARY.md when written)
+Phase 1 (d_008 ablation, 5 seeds) and Phase 2 (9 reference seeds): see wiki/D008_VALIDATION.md and wiki/DECISIONS.md "Metric". Reviewer (codex regular) on D008_VALIDATION: numbers reproduce; verdict softened, unpaired Welch CIs added, pairing caveat, textual-vs-algebraic structure caveat; no leakage seen.
+
+## cycle 012 — d_014 sum x_i (chi_max - chi_i), runs c012_s0/s1/s2 (3 seeds; scores c<=9 and c<=12)
+Best c<=9 per seed 4.1946/4.1947/4.1947, mean 4.1947 (paired vs v008_wo s0-2: -0.0001). Best c<=12 3.9114/3.9114/3.9732, mean 3.9320 (paired -0.048, i.e. the same Magpie-only equations the reference finds; not attributable to d_014). Selected: seeds 1 and 2 (min complexity 8, `m_NUnfilled + 262.79/exp(d_014 + m_Row)`, val 4.3247 — worse than the Magpie c9 4.1946 and than d_008's same-form c8 4.0300); seed 0 never.
+Reviewer (codex regular): plausible heuristic, dimensionless, no leakage (composition-only; repeated val selection risk); trace high-chi constituents move chi_max; no demonstrated gain; deprioritize.
+
+## cycle 014 — d_016 Allen-scale EN range, runs c014_s0/s1/s2
+Best c<=9 4.1946/4.1947/4.1946, mean 4.1946 (paired vs v008_wo -0.0001); best c<=12 3.9114 x3, mean 3.9114 (paired -0.069; the same Magpie-only c12 equation in all seeds, not attributable to d_016). Selected: seed 0 only, min complexity 10 (`m_NUnfilled + 301.13/exp(m_Row + d_016/m_NsValence)`, val 4.107); seeds 1, 2 never. Scale test: the Allen-scale EN range does NOT reproduce d_008's c8 selection (d_008: 3/5 seeds at c8, val 4.030), so the d_008 effect is scale-sensitive or fragile.
+Reviewer (codex regular): plausible, composition-only, no leakage; spot-checked ~10 Allen values (H, C, O, Cl, Ti, Fe, Mo, W, Ag, Au) correct, none found wrong (table typed from memory; not fully verified); weak evidence; favors d_008 provisionally.
+
+## cycle 015 — d_008 + d_007 jointly (EN range + B/C/N fraction), runs c015_s0/s1/s2
+Best c<=9 4.0300/4.0300/4.1946, mean 4.0849 (paired vs v008_wo -0.110; identical to the d_008-alone result, 3/5 seeds there); best c<=12 4.0300/3.9172/4.0520, mean 3.9997 (paired +0.020). d_008 selected at c8 in seeds 0 and 1 (same equation `381.7/exp(Row + d_008) + NUnfilled`, val 4.0300); seed 2 never. d_007 appears only at c>=11: seed 1 c11 `((307.79/exp(Row+d_008)) + NUnfilled)*exp(d_007)` val 3.9172 (the best c<=12 of the cycle, one seed), seed 0 c12 `(d_008 - d_007)/NsValence` inside the exponent (val 4.0875, worse than c8). 
+Reviewer (codex regular): does not establish an EN x light-element interaction; d_007 contributes nothing at c<=9; the 3.9172 rests on one seed; compatible with search noise; exp(d_007) dimensionless so GPa preserved but coefficients implicit; no leakage; needs fixed-complexity ablation and family-held-out validation.
+
+## cycle 016 — d_013 O-corrected valence electron density (alone), runs c016_s0/s1/s2
+Best c<=9 4.2071/4.1947/4.1947, mean 4.1988 (paired vs v008_wo +0.004); best c<=12 3.9770/4.0522/3.9769, mean 4.0020 (paired +0.022). d_013 NOT selected in any Pareto equation of any seed; results equal the no-descriptor reference (seed 0's c9 4.2071 is a different Magpie-only form, noise).
+Reviewer (codex regular): units e/A^3 correct, 11.494 A^3 constant correct, composition-only, no leakage; mixing Shannon ionic volume with elemental volumes is a heuristic, not a consistent crystal volume; no demonstrated value; deprioritize (does not show physical invalidity).
+
+## cycle 017 — d_008 + d_013 jointly, runs c017_s0/s1/s2
+Best c<=9 4.0301/4.2071/4.0299, mean 4.0890 (paired vs v008_wo -0.106); best c<=12 4.0301/3.9114/4.0299, mean 3.9905 (paired +0.010). d_008 selected in seeds 0 and 2 at c8 (the usual `381.8/exp(Row + d_008) + NUnfilled`, val 4.030); seed 1 used neither (Magpie-only 4.2071 at c9). d_013 appears in exactly one Pareto equation (seed 0, c14, `(d_013 + NpUnfilled)*NdUnfilled + ...`, adds e/A^3 to a count: dimensionally inconsistent without implicit coefficients) and never at c<=12. No joint benefit; the c<=9 gain is d_008's.
+Reviewer (codex regular): found the c14 d_013 occurrence (my own summary line first said "not used"; corrected here); no new leakage; conclusion within c<=12 holds.
+
+## cycle 018 — d_017 sum_{chi>2.5} x_i chi_i (EN-weighted anion-like content), runs c018_s0/s1/s2
+Best c<=9 4.0651/4.1946/4.1946, mean 4.1514 (paired vs v008_wo -0.043); best c<=12 3.7722/4.0828/4.0820, mean 3.9790 (paired -0.001: no gain on average; reference mean 3.9808 over 9 seeds). Selected in all 3 seeds (min complexity 9/10/10; 7/13, 4/13, 4/11 Pareto points), the most consistently selected new descriptor of the night, BUT with the fitted sign NEGATIVE in every seed (e.g. `(3.54 - d_017)*MendeleevNumber/exp(Row) + ...`; seed 0 c9 `872.77/GSvolume/((d_017 + NdValence) + 2.86)`), opposite to the pre-registered positive sign. Seed 0's c12 `(1070.55/((exp(d_017) + NdValence + 3.01) - GSbandgap))/GSvolume_pa` val 3.7722 is the best c<=12 value in the ledger, but is one seed; my per-row check on val (val rows only): vs the no-descriptor c<=12 winner v008_wo_s0 (4.0521) it improves 206/374 rows, but 10 rows (Be2W, Be2Re, Y3Al, Sc3In, Be12W, VO2, V3O5, VF2, TaC...) supply ~70% of the summed gain; MAE excluding those 10 rows is 3.751 vs 3.837 for the reference (gap 0.28 -> 0.09). The equation also adds GSbandgap (eV) to dimensionless terms.
+Reviewer (codex regular): supports selection but contradicts the pre-registered sign; plausible family confounding (ionic oxides/halides/chalcogenides vs hard carbides/nitrides), untested; composition-only, no target access, train/val formula lists have zero overlap; units: d_017 dimensionless, GSbandgap mixing needs implicit scaling; 3.7722 fragile (repeated-validation selection); requires GSbandgap ablation, per-row/jackknife and chemistry-grouped resampling before claiming improvement.
+
+## cycle 013 — d_015 Pauling ionic character 1 - exp(-(chi range)^2/4), runs c013_s0/s1/s2 (logged after cycle 019: c013_s1 segfaulted in Julia on attempt 1, log kept as ledger/logs/c013_s1.attempt1_segfault.log, re-run once with identical settings, succeeded)
+Best c<=9 4.1946 x3, mean 4.1946 (paired -0.0001); best c<=12 4.0855/3.9616/4.0521, mean 4.0331 (paired +0.053, no gain). Selected in seeds 0, 1 at c8 (`m_NUnfilled + 225.3/exp(m_Row + d_015)`, val 4.2806: worse than Magpie c9 4.1946 and than d_008's 4.0300); seed 1 c10 `NUnfilled + 464.86/exp(Row*(d_015 + 1.136))` val 3.9616, not replicated; seed 2 never.
+Reviewer (codex regular): no gain; saturating polarity proxy, ionic-softer not universal; dimensionally valid with implicit GPa coefficients; no leakage; crash retry reasonable (non-deterministic anyway).
+
+## cycle 019 — d_018 (chi range)^2 (= d_008^2), runs c019_s0/s1/s2
+Best c<=9 4.1526/4.1832/4.0025, mean 4.1128 (paired vs v008_wo -0.082); best c<=12 4.0454/4.0250/3.8741, mean 3.9815 (paired +0.001 = reference). Selected in all 3 seeds, min complexity 9 (7/13 Pareto points each), fitted dependence negative as pre-registered. Best: seed 2 c9 `951.27/(((d_018 + 2.793) + NdValence) * GSvolume_pa)` val 4.0025 (best c<=9 under the hardened search; d_008's c8 is 4.0300), c12 `932.16/((NdValence + d_018 + 3.211 - sqrt(GSbandgap))*GSvolume_pa)` val 3.8741. Seeds 0 and 1 only reach 4.15/4.18 at c9, worse than d_008's c8 equation. The squared form lets PySR build an inverse-volume form (GSvolume_pa in denominator, Gao-like) instead of the exp(-d_008) form, so it IS selected earlier than the linear range in some sense (c9 in 3/3 vs d_008's c8 in 3/5), but yields the same c<=12 as no descriptor.
+Reviewer (codex regular): plausible, exploratory; no leakage; 951.27 carries GPa*A^3, sqrt(GSbandgap) needs implicit scaling; 3-seed recurrence = search stability, not validation; squaring adds no information; c<=9 mean (4.1128) trails d_008's 4.0959 (5 seeds); correction: 4.0025 is best c<=9 only after the MeltingT/SpaceGroup exclusion (c003 reached 3.9709 using excluded MeltingT).

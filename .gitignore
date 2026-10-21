@@ -21,3 +21,4 @@ __marimo__/
 
 # agent kill switch
 STOP
+ledger/logs/
