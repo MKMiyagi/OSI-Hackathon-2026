@@ -1,0 +1,12 @@
+complexity,loss,equation
+1,46.927605,6.92992
+2,44.24073,exp(m_NsValence)
+3,38.59683,164.29321 / m_Number
+5,32.723816,(103.8013 / m_Number) + m_NUnfilled
+7,30.569899,m_NUnfilled + ((1407.3959 / m_Number) / m_GSvolume_pa)
+9,29.726906,((m_NpUnfilled * m_NdUnfilled) - d_008) + (148.15503 / m_Number)
+11,27.803623,((m_GSbandgap - -0.7713594) * (m_NUnfilled - d_008)) + (116.26197 / m_Number)
+12,27.485472,(118.20396 / m_Number) + ((m_NUnfilled - d_008) * (sqrt(m_GSbandgap) - -0.739335))
+13,26.899841,((m_GSbandgap + 0.7002224) * ((d_008 / -0.56992185) + m_NUnfilled)) + (139.71034 / m_Number)
+14,26.753939,((m_NUnfilled - (d_008 * 1.8032217)) * (sqrt(m_GSbandgap) - -0.6636436)) + (141.52022 / m_Number)
+15,26.463732,(142.41069 / m_Number) + ((log(m_Electronegativity) + sqrt(m_GSbandgap)) * ((d_008 / -0.6014201) + m_NUnfilled))
