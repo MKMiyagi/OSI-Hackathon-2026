@@ -3,3 +3,4 @@ cycle,descriptor,runs,best_c9_per_seed,mean_c9,best_c12_per_seed,mean_c12,paired
 014,d_016 Allen EN range,c014_s0+c014_s1+c014_s2,4.1946/4.1947/4.1946,4.1946,3.9114/3.9114/3.9114,3.9114,-0.0001,-0.0688,True/False/False,10/None/None
 015,d_008+d_007 EN range + BCN fraction,c015_s0+c015_s1+c015_s2,4.0300/4.0300/4.1946,4.0849,4.0300/3.9172/4.0520,3.9997,-0.1099,+0.0195,True/True/False,8/8/None
 016,d_013 O-corrected valence e- density,c016_s0+c016_s1+c016_s2,4.2071/4.1947/4.1947,4.1988,3.9770/4.0522/3.9769,4.0020,+0.0041,+0.0218,False/False/False,None/None/None
+017,d_008+d_013,c017_s0+c017_s1+c017_s2,4.0301/4.2071/4.0299,4.0890,4.0301/3.9114/4.0299,3.9905,-0.1057,+0.0103,True/False/True,8/None/8

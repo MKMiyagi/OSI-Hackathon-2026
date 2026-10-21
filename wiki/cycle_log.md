@@ -65,3 +65,7 @@ Reviewer (codex regular): does not establish an EN x light-element interaction; 
 ## cycle 016 — d_013 O-corrected valence electron density (alone), runs c016_s0/s1/s2
 Best c<=9 4.2071/4.1947/4.1947, mean 4.1988 (paired vs v008_wo +0.004); best c<=12 3.9770/4.0522/3.9769, mean 4.0020 (paired +0.022). d_013 NOT selected in any Pareto equation of any seed; results equal the no-descriptor reference (seed 0's c9 4.2071 is a different Magpie-only form, noise).
 Reviewer (codex regular): units e/A^3 correct, 11.494 A^3 constant correct, composition-only, no leakage; mixing Shannon ionic volume with elemental volumes is a heuristic, not a consistent crystal volume; no demonstrated value; deprioritize (does not show physical invalidity).
+
+## cycle 017 — d_008 + d_013 jointly, runs c017_s0/s1/s2
+Best c<=9 4.0301/4.2071/4.0299, mean 4.0890 (paired vs v008_wo -0.106); best c<=12 4.0301/3.9114/4.0299, mean 3.9905 (paired +0.010). d_008 selected in seeds 0 and 2 at c8 (the usual `381.8/exp(Row + d_008) + NUnfilled`, val 4.030); seed 1 used neither (Magpie-only 4.2071 at c9). d_013 appears in exactly one Pareto equation (seed 0, c14, `(d_013 + NpUnfilled)*NdUnfilled + ...`, adds e/A^3 to a count: dimensionally inconsistent without implicit coefficients) and never at c<=12. No joint benefit; the c<=9 gain is d_008's.
+Reviewer (codex regular): found the c14 d_013 occurrence (my own summary line first said "not used"; corrected here); no new leakage; conclusion within c<=12 holds.

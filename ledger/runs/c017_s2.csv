@@ -1,0 +1,13 @@
+complexity,loss,equation
+1,46.655293,7.2284827
+2,45.27514,exp(m_NsValence)
+3,38.433487,131.31148 / m_GSvolume_pa
+5,32.31155,m_NUnfilled + (106.61769 / m_Number)
+6,32.253662,(243.92825 / m_GSvolume_pa) / log(m_NValence)
+7,29.175514,((513.68225 / m_GSvolume_pa) / m_NValence) + m_NUnfilled
+8,28.676779,(381.65845 / exp(m_Row + d_008)) + m_NUnfilled
+9,27.804676,m_NUnfilled + (((m_MendeleevNumber * 8.483877) / m_GSvolume_pa) / m_NValence)
+10,26.451313,m_NUnfilled + (302.7261 / exp(m_Row + (d_008 / m_NsValence)))
+12,25.616268,m_NUnfilled + (272.11594 / (exp(m_Row + (d_008 / m_NsValence)) - m_NUnfilled))
+14,25.34495,(258.98752 / ((exp((d_008 / m_NsValence) + m_Row) - m_NUnfilled) - m_NdUnfilled)) + m_NUnfilled
+15,24.91988,m_NUnfilled + (249.27835 / (exp((d_008 / m_NsValence) + m_Row) - exp(m_NUnfilled * 0.41340494)))
