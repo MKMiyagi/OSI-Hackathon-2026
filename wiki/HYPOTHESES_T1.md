@@ -48,3 +48,13 @@ MAE 4.45; wiki/TARGET_RECOMMENDATION.md). H2-H5 have not been computed at all.
 ## Suggested queue for tonight
 Reference arms (no descriptor) for B and G first. Then H1 on B, H1 on G, H1+H3 on G, H1+H4 on G, H5 on G.
 Then compose Hv = Chen(B, G) on val with eval/compose_hv.py. Use `--units` for every B and G arm.
+
+## Implementation check (2026-10-21 14:05; train only, descriptor-descriptor Spearman, no target)
+All five are now in descriptors/ (d_023-d_027) and finite on every train row.
+- **d_024 (Cohen) is rank-identical to d_010** (rho = -1.00): lam clips to 2 for almost every compound, so it
+  collapses to a monotone function of harmonic radius, a family already tested (cycle 010, noise). Don't queue it.
+- **d_026 (VEC optimum) is ~ m_NValence** (rho 0.98). Magpie's NValence also counts filled d10 shells (Ga = 13), so
+  the 4.2 e/atom optimum is only meaningful for transition-metal compounds. Low priority.
+- d_025 (size mismatch): rho 0.61 with d_008, 0.42 with d_024; partly new.
+- **d_027 (E_coh spread): max |rho| 0.40** (with d_008); the most novel of the four.
+- d_023 results (direct Hv and Chen(B, k) routes): see wiki/T1_ROUTES.md.

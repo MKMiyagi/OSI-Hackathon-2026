@@ -67,6 +67,8 @@ def main():
     ap.add_argument("--B", nargs="*", default=[], help="runs fitted on bulk_modulus")
     ap.add_argument("--k", nargs="*", default=[], help="runs fitted on pugh_k (G/B)")
     ap.add_argument("--G", nargs="*", default=[], help="runs fitted on shear_modulus (alternative to --k)")
+    ap.add_argument("--budgets", nargs="*", type=int, default=list(BUDGETS), help="complexity budgets to report")
+    ap.add_argument("--out", default="ledger/t1_compose.csv")
     args = ap.parse_args()
     partner, pname = (args.k, "k") if args.k else (args.G, "G")
     if args.B and len(args.B) != len(partner):
@@ -92,7 +94,7 @@ def main():
         """cands: list of (complexity, train_pred, val_pred) for Hv. Candidates must be finite on train (selection
         uses train only); a val blow-up is kept and scored inf, so val never decides which candidates exist."""
         cands = [c for c in cands if np.isfinite(c[1]).all()]
-        for T in BUDGETS:
+        for T in args.budgets:
             inb = [c for c in cands if c[0] <= T]
             if not inb:
                 continue
@@ -123,7 +125,7 @@ def main():
         print(f"  seed {i}: best composed pair on val c_B={best[3]} c_{pname}={best[4]} -> {mae(hv['val'], best[2]):.3f}")
 
     out = pd.DataFrame(rows)
-    out.to_csv(ROOT / "ledger/t1_compose.csv", index=False, float_format="%.4f")
+    out.to_csv(ROOT / args.out, index=False, float_format="%.4f")
     summary = out.groupby(["route", "budget"]).agg(
         seeds=("seed", "nunique"), trainsel_mean=("trainsel_val_mae", "mean"), trainsel_sd=("trainsel_val_mae", "std"),
         valbest_mean=("valbest_val_mae", "mean"))
