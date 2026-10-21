@@ -111,6 +111,8 @@ def main():
                     help="training loss; L1 matches the MAE metric (default L2 = the stored reference arm)")
     ap.add_argument("--units", action="store_true",
                     help="penalize dimensionally inconsistent equations (PySR X_units/y_units); off for the reference arm")
+    ap.add_argument("--dimensionless-constants", action="store_true",
+                    help="with --units: constants carry no units, so the target's dimension must come from features")
     ap.add_argument("--target", default="hv_chen", help="target column in train.csv")
     ap.add_argument("--formula-col", default="formula")
     args = ap.parse_args()
@@ -146,7 +148,10 @@ def main():
         progress=False,
         temp_equation_file=True,
         elementwise_loss=LOSSES[args.loss],
+        dimensionless_constants_only=args.dimensionless_constants,
     )
+    if args.dimensionless_constants and not args.units:
+        raise SystemExit("--dimensionless-constants needs --units")
     units = {}
     if args.units:
         units = {"X_units": feature_units(X.columns), "y_units": TARGET_UNITS[args.target]}
@@ -173,6 +178,7 @@ def main():
                 "fit_seconds": round(wall, 1),
                 "loss": args.loss,
                 "units": bool(args.units),
+                "dimensionless_constants": bool(args.dimensionless_constants),
             }
         )
     )

@@ -190,7 +190,7 @@ def fig_cycles(r, t):
     ax.text(m + 0.004, top, f"reference {m:.2f} ± {sd:.2f}", color=t["text2"], fontsize=8.5, va="bottom")
     ax.text(m - 0.084, top, f"improvement bar {m - 0.08:.2f}", color=t["text2"], fontsize=8.5, va="bottom",
             ha="right")
-    ax.annotate("3.911 = the recurring Magpie-only c12 equation\n(38 runs, with or without a descriptor)",
+    ax.annotate("3.911 = the recurring Magpie-only c12 equation\n(12 runs, with or without a descriptor)",
                 (3.9114, len(order) - 1), xytext=(4.14, len(order) - 2.9), color=t["text2"], fontsize=8.5,
                 ha="center", arrowprops=dict(arrowstyle="-", color=t["muted"], linewidth=0.8))
     ax.set_yticks(range(len(order)))

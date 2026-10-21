@@ -8,7 +8,7 @@ Nothing frozen changes: same splits, same `score.py`, same val MAE vs `hv_chen`,
 | predictor (composition-only unless noted) | val MAE vs hv_chen (GPa) |
 |---|---|
 | train-median constant | 5.04 |
-| best direct-SR formula, c8 / c12 / c15 (val reused for selection) | 4.03 / 3.77-3.91 / 3.89 |
+| best direct-SR formula, c8 / c12 / c15 (val reused for selection) | 4.03 / 3.77-3.91 / 3.79-3.89 |
 | B, G each from one descriptor, `M = a (E_coh/V)^b`, then Chen | 4.45 |
 | Magpie SVR -> log B, log G -> Chen | 2.84 |
 | Magpie SVR direct on hv_chen | 2.82 |
@@ -48,8 +48,9 @@ not composition-only (14 structural descriptors). Our reproduction (val r^2 0.95
 
 ## What it costs (fits tonight's overnight run)
 1. A descriptor for E_coh/V (UNITS Pa); see wiki/HYPOTHESES_T1.md.
-2. `eval/compose_hv.py` (~50 lines): pick B and G Pareto equations, Chen on val, MAE vs hv_chen. `score.py`
-   already scores single-target B or G runs unchanged (it reads the target from the run's JSON).
+2. `eval/compose_hv.py`: pair B and k (or G) Pareto equations, Chen on val, MAE vs hv_chen. Do **not** run
+   `score.py` on B/G/k runs: it would work, but `ledger/results.csv` has no target column, so B MAEs (~25 GPa)
+   would be read as hv_chen MAEs by every ledger consumer.
 3. No-descriptor reference arms for `--target bulk_modulus` and `--target shear_modulus`, 3 seeds each.
 4. Thursday: test-set evaluation (T1, by hand) and the Zhang external check (T1, once).
 

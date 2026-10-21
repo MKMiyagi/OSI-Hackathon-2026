@@ -3,6 +3,8 @@
 # queue line: <run_id> <seed> <target> [descriptors...]
 # Fits only (no score.py: ledger/results.csv is agent-machine-only). Score with eval/compose_hv.py.
 # Fixed settings for every T1 B/k-route arm: L1 loss, --units, niter 22000, maxsize 15, procs 4, 900 s.
+# On T1's 6-core laptop at 3-way parallel the 900 s timeout binds first (~4k of 22k iterations), so every
+# arm gets the same wall-clock budget; compare arms with each other, not with the stored 22k reference.
 cd "$(dirname "$0")/.."
 PY="${PY:-$HOME/code/OSI-Hackathon-2026/.venv/bin/python}"
 run_one() {

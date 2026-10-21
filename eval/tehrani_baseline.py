@@ -15,7 +15,8 @@ Feature sets:
 
 Routes: "BG" = separate SVRs on log B and log G (as matbench log_kvrh/log_gvrh; keeps moduli
 positive), then Chen; "BG_kcap" = same with the Pugh ratio G/B capped at its train maximum
-(Chen's input domain; without it a few soft halides get k ~ 10 and Hv ~ 100 GPa);
+(Chen's input domain). The cap was needed when B, G were fit untransformed (soft halides got k ~ 10, Hv ~ 100 GPa);
+with log targets it never binds on val, so BG_kcap == BG;
 "direct" = one SVR straight on hv_chen. Writes eval/tehrani_baseline.csv.
 """
 import argparse

@@ -3,14 +3,17 @@
 For the search proposed in wiki/TARGET_RECOMMENDATION.md: Hv = Chen(B, G), where B sets the *scale* and the Pugh ratio
 k = G/B sets the *bonding character*. IDs start at d_023 so they don't collide with d_019-d_022 (bond-count family,
 wiki/HYPOTHESES_4.md, PR #11). Signs and units are pre-registered. Inputs are composition + matminer element tables only.
-Only T1 has looked at H1, and only against train labels; nothing has been scored on val.
+H1 is **not val-blind**: it was screened on train, and its 2-parameter fit was then scored once on val (R^2 0.81, Chen
+MAE 4.45; wiki/TARGET_RECOMMENDATION.md). H2-H5 have not been computed at all.
 
 ## H1 Cohesive-energy density — d_023 (target B, also G)
 - `160.2 * sum_i x_i E_coh,i / m_GSvolume_pa` in GPa. E_coh is Kittel's cohesive energy from matminer
   `utils/data_files/cohesive_energies.json`, which covers every element in the dataset. Declare `UNITS = "Pa"`.
 - Rationale: a modulus is a curvature of energy per volume, B ~ E_coh / V (universal binding-energy relation,
-  Rose, Smith, Guinea & Ferrante 1984). It is the only descriptor with the target's dimension; under `--units` it lets PySR
-  write B = c * d_023 * f(dimensionless).
+  Rose, Smith, Guinea & Ferrante 1984). It is the only descriptor with the target's dimension. Note `--units`
+  does not reward that: constants may carry any unit (PySR dimensionless_constants_only=False), so e.g.
+  `2118 / m_GSvolume_pa` also passes as Pa. Only `--dimensionless-constants` makes d_023 (or bandgap/volume) the
+  sole route to Pa.
 - Expected sign: positive, power ~1. Train-only screen: Spearman 0.88 with B (vs 0.39 for NValence/V, d_002) and
   0.78 with G. The 2-parameter train fit B = 3.26 * d_023^0.994 gives val R^2 0.81.
 

@@ -13,10 +13,12 @@ not counted):
   val-best        the lowest val MAE within the budget (the ledger's convention; optimistic, and more so for the
                   composed route, which has many more candidates per budget)
 Uses eval/score.py's eval_equation and sr/run_pysr.py's featurize, so the metric is the frozen one. Never reads the
-test file. Writes ledger/t1_compose.csv.
+test file. Writes ledger/t1_compose.csv. Note the composed route gets two searches (B and k), i.e. twice the search
+compute of one direct run; iterations actually completed are printed per run.
 """
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -38,14 +40,16 @@ def meta(run):
 
 
 def front(run, X):
-    """Pareto equations of a run evaluated on X: {complexity: prediction array}."""
+    """Pareto equations of a run evaluated on X: {complexity: prediction array} (may contain non-finite values)."""
     eqs = pd.read_csv(ROOT / f"ledger/runs/{run}.csv")
-    out = {}
-    for _, r in eqs.iterrows():
-        pred = eval_equation(r["equation"], X)
-        if np.isfinite(pred).all():
-            out[int(r["complexity"])] = pred
-    return out
+    return {int(r["complexity"]): eval_equation(r["equation"], X) for _, r in eqs.iterrows()}
+
+
+def iterations(run):
+    """Iterations actually completed, from the fit log (the 900 s timeout can stop a run early)."""
+    log = ROOT / f"ledger/logs/{run}.log"
+    hits = re.findall(r"Progress: (\d+) / (\d+)", log.read_text()) if log.exists() else []
+    return f"{hits[-1][0]}/{hits[-1][1]}" if hits else "?"
 
 
 def target(df, name):
@@ -53,7 +57,8 @@ def target(df, name):
 
 
 def mae(a, b):
-    return float(np.mean(np.abs(a - b)))
+    """MAE; inf if any prediction is non-finite (a candidate that blows up is scored as failed, never dropped)."""
+    return float(np.mean(np.abs(a - b))) if np.isfinite(b).all() else float("inf")
 
 
 def main():
@@ -80,10 +85,13 @@ def main():
         tgt = meta(run)["target"]
         f = front(run, X["val"])
         y = target(data["val"], tgt)
-        print(f"  {run:12s} {tgt:13s} " + "  ".join(f"c{c}:{mae(y, p):.3f}" for c, p in sorted(f.items())))
+        print(f"  {run:12s} {tgt:13s} iters {iterations(run):>11s}  "
+              + "  ".join(f"c{c}:{mae(y, p):.3f}" for c, p in sorted(f.items())))
 
     def report(route, seed, cands):
-        """cands: list of (complexity, train_pred, val_pred) for Hv."""
+        """cands: list of (complexity, train_pred, val_pred) for Hv. Candidates must be finite on train (selection
+        uses train only); a val blow-up is kept and scored inf, so val never decides which candidates exist."""
+        cands = [c for c in cands if np.isfinite(c[1]).all()]
         for T in BUDGETS:
             inb = [c for c in cands if c[0] <= T]
             if not inb:
@@ -96,14 +104,14 @@ def main():
 
     for i, run in enumerate(args.direct):
         ft, fv = front(run, X["train"]), front(run, X["val"])
-        report("direct", i, [(c, ft[c], fv[c]) for c in fv if c in ft])
+        report("direct", i, [(c, ft[c], fv[c]) for c in sorted(ft.keys() & fv.keys())])
 
     for i, (brun, prun) in enumerate(zip(args.B, partner)):
         fb = {s: front(brun, X[s]) for s in X}
         fp = {s: front(prun, X[s]) for s in X}
         cands = []
-        for cb in fb["val"]:
-            for cp in fp["val"]:
+        for cb in sorted(fb["train"].keys() & fb["val"].keys()):
+            for cp in sorted(fp["train"].keys() & fp["val"].keys()):
                 preds = []
                 for s in ("train", "val"):
                     B = np.clip(fb[s][cb], B_MIN, None)
