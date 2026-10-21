@@ -13,6 +13,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import sympy
 
 ROOT = Path(__file__).resolve().parent.parent
 WINDOWS = (6, 9, 12, 15)
@@ -23,6 +24,21 @@ def best(res, run, w):
     if d.empty:
         raise SystemExit(f"no scored rows for {run}")
     return d.loc[d.val_mae.idxmin()]
+
+
+def canon(eq):
+    """Canonical structure of an equation: parse with sympy, set every fitted float constant to 1, simplify.
+
+    Algebraically equivalent forms (e.g. k*x/(y*z) and x/(0.12*y*z)) collapse to the same expression.
+    Falls back to the raw string if sympy cannot parse it.
+    """
+    try:
+        syms = {n: sympy.Symbol(n) for n in set(re.findall(r"[A-Za-z_]\w*", eq)) - {"exp", "log", "sqrt", "square", "cube", "abs", "inv"}}
+        expr = sympy.sympify(eq, locals=syms)
+        expr = expr.xreplace({f: sympy.Integer(1) for f in expr.atoms(sympy.Float)})
+        return str(sympy.simplify(expr))
+    except Exception:
+        return eq
 
 
 def ms(x):
@@ -67,10 +83,9 @@ def main():
         cands = [best(res, r, 9) for r in runs]
         b = min(cands, key=lambda s: s.val_mae)
         print(f"\nBest compact (c<=9) equation, {name} arm: run {b.run_id} c{int(b.complexity)} val {b.val_mae:.4f}\n  {b.formula}")
-        # structure only: fitted constants differ run to run, so mask numeric literals
-        eqs = pd.Series([re.sub(r"(?<![\w.])\d+\.?\d*(e-?\d+)?", "C", c.formula) for c in cands]).value_counts()
-        print(f"  distinct textual forms of per-seed c<=9 winners (constants masked; NOT algebraic equivalence): {len(eqs)}; most common ({eqs.iloc[0]}/{n}): {eqs.index[0]}")
-
+        # structure only: fitted constants differ run to run, so compare sympy-simplified forms with constants set to 1
+        eqs = pd.Series([canon(c.formula) for c in cands]).value_counts()
+        print(f"  distinct structures of per-seed c<=9 winners (sympy-simplified, constants set to 1): {len(eqs)}; most common ({eqs.iloc[0]}/{n}): {eqs.index[0]}")
 
 if __name__ == "__main__":
     main()
