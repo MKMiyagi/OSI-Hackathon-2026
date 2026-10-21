@@ -14,18 +14,21 @@ computed from DFT B,G in data/raw (team decision; may change Wednesday — see w
 - Do not install new ML models or tune black-box baselines; this project is about formulas.
 
 ## The descriptor cycle (one hypothesis per cycle)
-1. Read wiki/ and ledger/results.csv. Do not repeat a failed descriptor family.
+1. Read wiki/ (incl. wiki/HYPOTHESES.md) and ledger/results.csv. Do not repeat a failed descriptor family.
 2. Write descriptors/d_###.py: docstring = physical rationale + expected sign; def compute(df) -> Series.
-3. Run: uv run python sr/run_pysr.py --descriptors d_### ...  (writes Pareto CSV to ledger/runs/)
-4. Run: uv run python eval/score.py --run <id>  (appends one row per Pareto point to ledger/results.csv)
-5. Ask the Codex reviewer: physical plausibility, unit consistency, leakage risk. Log the verdict in wiki/.
-6. git add -A && git commit -m "cycle ###: <descriptor> val_mae=<x>" && git push origin agent/overnight-1
+3. Run TWO seeds (parallel is fine): uv run python sr/run_pysr.py --descriptors d_### --run-id c###_s0 --seed 0 (and c###_s1 --seed 1).
+   Defaults: niterations 22000 (calibrated so one fit is ~8-12 min), maxsize 15, procs 4, 900 s timeout, m_MeltingT and m_SpaceGroupNumber excluded.
+4. Run: uv run python eval/score.py --run c###_s0 (and c###_s1)  (appends one row per Pareto point to ledger/results.csv)
+5. Run: uv run python sr/cycle_summary.py --cycle ### --descriptor "<name>" --runs c###_s0 c###_s1
+   Cycle score = mean of the two best val_mae at complexity <= 9. "Improvement" = mean drops by >= 0.05 GPa vs the best previous cycle (reference: d_003 under this search, t003b_s0/s1).
+6. Ask the Codex reviewer ONCE (regular tier, not deep-audit): physical plausibility, unit consistency, leakage risk. Log the verdict in wiki/cycle_log.md, including per-seed numbers and whether PySR actually selected the descriptor.
+7. git add -A && git commit -m "cycle ###: <descriptor> val_mae=<mean of two seeds>" && git push origin agent/overnight-1
 
 ## Stop conditions
-- Max 12 cycles per night, or 3 consecutive cycles without val-MAE improvement at the knee, or 06:00 local.
+- Stop after 3 consecutive non-improving cycles (per the two-seed rule above), or 10 cycles per night, or 06:00 local.
 - Before each cycle, check for a file named STOP in the repo root. If present: finish the current step, commit, write wiki/STOPPED.md, and stop.
 - On any error you can't fix in 2 attempts: write wiki/BLOCKED.md and stop. Do not delete data or history.
-<!-- ARIS:BEGIN -->
+
 ## ARIS Skill Scope
 ARIS skills installed in this project: 86 entries.
 Manifest: `.aris/installed-skills.txt` (lists every skill ARIS installed and its upstream target).

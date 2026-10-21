@@ -10,6 +10,7 @@ import argparse
 import importlib
 import json
 import sys
+import time
 from pathlib import Path
 
 import numpy as np
@@ -17,6 +18,10 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
+
+
+# Unphysical for a hardness law (reviewer recommendation, overnight 1)
+DEFAULT_EXCLUDE = "m_MeltingT,m_SpaceGroupNumber"
 
 
 def magpie_means(df, formula_col):
@@ -64,8 +69,16 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--descriptors", nargs="*", default=[], help="module names in descriptors/, e.g. d_001")
     ap.add_argument("--run-id", required=True)
-    ap.add_argument("--niterations", type=int, default=40)
-    ap.add_argument("--maxsize", type=int, default=20)
+    ap.add_argument("--niterations", type=int, default=22000)
+    ap.add_argument("--maxsize", type=int, default=15)
+    ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--procs", type=int, default=4)
+    ap.add_argument("--timeout", type=int, default=900, help="timeout_in_seconds per fit")
+    ap.add_argument(
+        "--exclude-features",
+        default=DEFAULT_EXCLUDE,
+        help="comma list of feature columns hidden from PySR (still computed, so score.py is unaffected); '' for none",
+    )
     ap.add_argument("--target", default="hv_chen", help="target column in train.csv")
     ap.add_argument("--formula-col", default="formula")
     args = ap.parse_args()
@@ -74,6 +87,12 @@ def main():
 
     df = pd.read_csv(ROOT / "data/splits/train.csv")
     df, X = featurize(df, args.descriptors, args.formula_col)
+
+    exclude = [c.strip() for c in args.exclude_features.split(",") if c.strip()]
+    unknown = [c for c in exclude if c not in X.columns]
+    if unknown:
+        raise SystemExit(f"--exclude-features names not in feature set: {unknown}")
+    X = X.drop(columns=exclude)
 
     y = df[args.target].astype(float).values
     Xv = X.astype(float).values
@@ -87,16 +106,36 @@ def main():
         maxsize=args.maxsize,
         binary_operators=["+", "-", "*", "/"],
         unary_operators=["sqrt", "log", "exp"],
+        nested_constraints={op: {"sqrt": 0, "log": 0, "exp": 0} for op in ("sqrt", "log", "exp")},
+        procs=args.procs,
+        timeout_in_seconds=args.timeout,
+        random_state=args.seed,
+        deterministic=False,
         progress=False,
         temp_equation_file=True,
     )
+    t0 = time.time()
     model.fit(Xv[keep], y[keep], variable_names=list(X.columns))
+    wall = time.time() - t0
+    print(f"fit wall-clock: {wall:.1f}s")
 
     out = ROOT / "ledger/runs"
     out.mkdir(parents=True, exist_ok=True)
     model.equations_[["complexity", "loss", "equation"]].to_csv(out / f"{args.run_id}.csv", index=False)
     (out / f"{args.run_id}.json").write_text(
-        json.dumps({"descriptors": args.descriptors, "target": args.target, "formula_col": args.formula_col})
+        json.dumps(
+            {
+                "descriptors": args.descriptors,
+                "target": args.target,
+                "formula_col": args.formula_col,
+                "seed": args.seed,
+                "exclude_features": exclude,
+                "niterations": args.niterations,
+                "maxsize": args.maxsize,
+                "timeout_in_seconds": args.timeout,
+                "fit_seconds": round(wall, 1),
+            }
+        )
     )
     print(f"wrote {out / (args.run_id + '.csv')}")
 
