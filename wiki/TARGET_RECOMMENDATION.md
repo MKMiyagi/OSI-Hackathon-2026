@@ -5,8 +5,8 @@ Final recommendation: **keep `hv_chen` as the frozen target and search it direct
 composition-based emulator of the DFT-derived Chen proxy. **Add d_023 (cohesive-energy density) to the search.** Run the
 Zhang 2021 measured-Hv external check once on Thursday. Drop the Chen(B, k) search route proposed below: in the
 experiment (wiki/T1_ROUTES.md) it added nothing beyond d_023.
-Evidence, seeds 0-1, same settings in every arm, formula picked on train:
-- direct + d_023 vs direct Magpie-only: c<=12 3.79 vs 3.92, c<=15 3.64 vs 3.88. Seed-stable.
+Evidence, 3 seeds, same settings in every arm, formula picked on train:
+- direct + d_023 vs direct Magpie-only: c<=12 3.79 vs 3.92, c<=15 3.62 vs 3.85. Seed-stable.
 - Splitting into B and k only helps once B gets d_023, and then it roughly matches direct + d_023.
 The morning text below is kept as the record of the original argument.
 

@@ -1,0 +1,11 @@
+complexity,loss,equation
+1,58.096928,112.73421
+3,25.665525,d_023 * 3.3652723
+5,25.50341,(m_Electronegativity + 1.4830817) * d_023
+6,23.713856,d_023 * (sqrt(m_Row) * 1.6551398)
+7,23.29883,d_023 * ((m_Row * 0.35498583) + m_Electronegativity)
+8,22.911566,(sqrt(m_Row + -1.9999545) + m_Electronegativity) * d_023
+10,22.751875,(d_023 * (sqrt(m_Row + -1.9999545) + m_Electronegativity)) - -2.4430957
+12,22.663284,(d_023 * ((m_Electronegativity * 0.9443674) + sqrt(m_Row + -1.9999545))) + 5.3620706
+13,22.616692,d_023 * ((sqrt(m_NpValence) / m_Column) + (m_Electronegativity + sqrt(m_Row + -1.9999545)))
+14,22.44746,(((m_NsUnfilled * -3.8542666) + d_023) * (m_Electronegativity + sqrt(m_Row + -1.9999545))) + 5.416042
