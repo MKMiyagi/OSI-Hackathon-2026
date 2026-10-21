@@ -46,3 +46,6 @@ Per-seed best c<=9: 4.1946 / 4.2489, mean 4.2218; NO improvement vs 4.1123 (stre
 Reviewer (codex, regular): heuristic, not an established G/B estimator; dimensionless; no direct leakage; the scale 10 (and 103) is an undocumented hyperparameter, i.e. an implicit fit if tuned on val (it was fixed a priori here, not tuned); c<=9 evidence negative.
 
 STOP: 3 consecutive non-improving cycles (009, 010, 011). Queue item f (d_013, O-corrected valence electron density) not run. No STOP file; time ~22:30 local, before 06:00.
+
+# Overnight 3 (see wiki/OVERNIGHT_3_SUMMARY.md when written)
+Phase 1 (d_008 ablation, 5 seeds) and Phase 2 (9 reference seeds): see wiki/D008_VALIDATION.md and wiki/DECISIONS.md "Metric". Reviewer (codex regular) on D008_VALIDATION: numbers reproduce; verdict softened, unpaired Welch CIs added, pairing caveat, textual-vs-algebraic structure caveat; no leakage seen.
