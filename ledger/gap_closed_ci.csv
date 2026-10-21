@@ -1,0 +1,5 @@
+formula,run,c,mae,gap_closed,gap_lo,gap_hi,mase_svr,mase_lo,mase_hi
+c5  d_023/(NdVal+k),c020_s0,5,3.9077,0.5154,0.3406,0.6583,1.3764,1.2529,1.5271
+c8  d_023/(NdVal+sqrt(Col))+NpUnf,c020_s0,8,3.6939,0.6124,0.4393,0.7649,1.3011,1.1763,1.4456
+c9  unit-consistent,c027_s0,9,3.6972,0.6109,0.4361,0.7616,1.3022,1.1791,1.4420
+no-descriptor c9 (reference),ref_s5,9,4.1947,0.3853,0.2215,0.5239,1.4775,1.3408,1.6306
