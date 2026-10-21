@@ -23,6 +23,32 @@ sys.path.insert(0, str(ROOT))
 # Unphysical for a hardness law (reviewer recommendation, overnight 1)
 DEFAULT_EXCLUDE = "m_MeltingT,m_SpaceGroupNumber"
 
+# --units: SI dimensions for PySR's dimensional-constraint penalty. Only the dimension matters (constants
+# are free to carry units and scale), so A^3 -> m^3, eV -> J, pm -> m, amu -> kg. Unlisted Magpie means
+# (counts, indices, Pauling chi, magmom in mu_B) are dimensionless. A descriptor can declare its own
+# `UNITS = "..."` string; otherwise DESCRIPTOR_UNITS, otherwise dimensionless.
+MAGPIE_UNITS = {
+    "m_AtomicWeight": "kg",
+    "m_MeltingT": "K",
+    "m_CovalentRadius": "m",
+    "m_GSvolume_pa": "m^3",
+    "m_GSbandgap": "J",
+}
+DESCRIPTOR_UNITS = {"d_002": "m^-3", "d_006": "m^-2", "d_010": "m", "d_011": "m^-2.5", "d_013": "m^-3"}
+TARGET_UNITS = {"hv_chen": "Pa", "bulk_modulus": "Pa", "shear_modulus": "Pa"}
+LOSSES = {"L2": None, "L1": "L1DistLoss()"}  # None = PySR default (squared error)
+
+
+def feature_units(columns):
+    units = []
+    for c in columns:
+        if c.startswith("m_"):
+            units.append(MAGPIE_UNITS.get(c, "1"))
+        else:
+            mod = importlib.import_module(f"descriptors.{c}")
+            units.append(getattr(mod, "UNITS", DESCRIPTOR_UNITS.get(c, "1")))
+    return units
+
 
 def magpie_means(df, formula_col):
     from matminer.featurizers.composition import ElementProperty
@@ -79,6 +105,10 @@ def main():
         default=DEFAULT_EXCLUDE,
         help="comma list of feature columns hidden from PySR (still computed, so score.py is unaffected); '' for none",
     )
+    ap.add_argument("--loss", choices=sorted(LOSSES), default="L2",
+                    help="training loss; L1 matches the MAE metric (default L2 = the stored reference arm)")
+    ap.add_argument("--units", action="store_true",
+                    help="penalize dimensionally inconsistent equations (PySR X_units/y_units); off for the reference arm")
     ap.add_argument("--target", default="hv_chen", help="target column in train.csv")
     ap.add_argument("--formula-col", default="formula")
     args = ap.parse_args()
@@ -113,9 +143,14 @@ def main():
         deterministic=False,
         progress=False,
         temp_equation_file=True,
+        elementwise_loss=LOSSES[args.loss],
     )
+    units = {}
+    if args.units:
+        units = {"X_units": feature_units(X.columns), "y_units": TARGET_UNITS[args.target]}
+        print("units:", dict(zip(X.columns, units["X_units"])), "->", units["y_units"])
     t0 = time.time()
-    model.fit(Xv[keep], y[keep], variable_names=list(X.columns))
+    model.fit(Xv[keep], y[keep], variable_names=list(X.columns), **units)
     wall = time.time() - t0
     print(f"fit wall-clock: {wall:.1f}s")
 
@@ -134,6 +169,8 @@ def main():
                 "maxsize": args.maxsize,
                 "timeout_in_seconds": args.timeout,
                 "fit_seconds": round(wall, 1),
+                "loss": args.loss,
+                "units": bool(args.units),
             }
         )
     )
