@@ -1,2 +1,3 @@
 cycle,descriptor,runs,best_c9_per_seed,mean_c9,best_c12_per_seed,mean_c12,paired_diff_c9_vs_v008_wo,paired_diff_c12_vs_v008_wo,selected_seeds,min_complexity_used
 012,d_014 EN deviation from max,c012_s0+c012_s1+c012_s2,4.1946/4.1947/4.1947,4.1947,3.9114/3.9114/3.9732,3.9320,-0.0001,-0.0482,False/True/True,None/8/8
+014,d_016 Allen EN range,c014_s0+c014_s1+c014_s2,4.1946/4.1947/4.1946,4.1946,3.9114/3.9114/3.9114,3.9114,-0.0001,-0.0688,True/False/False,10/None/None
