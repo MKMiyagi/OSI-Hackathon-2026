@@ -1,0 +1,4 @@
+name,mae,source
+train-median constant (val MAE),5.0442,our computation
+Magpie SVR (val MAE),2.8391,our computation
+"Mazhnik-Oganov 2019 oracle, true B,G (val MAE vs Chen labels)",3.126,"our computation; coefficients: verification table row 9 (Tian 2012 omitted, row 10 unverified)"

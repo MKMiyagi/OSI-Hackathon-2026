@@ -1,0 +1,13 @@
+arm,window,mae_mean,mae_sd,mae_min,mae_max,gap_closed_foldmean,gap_fold_min,gap_fold_max,const_mean,svr_mean,source
+magpie,9,4.0393,0.17388,3.8126,4.212,0.40882,0.23417,0.5243,4.8891,2.8104,nested CV (train+val folds)
+magpie,12,3.7867,0.15132,3.5472,3.9371,0.53032,0.44745,0.63235,4.8891,2.8104,nested CV (train+val folds)
+magpie,15,3.7669,0.17294,3.4813,3.9368,0.53984,0.45934,0.67663,4.8891,2.8104,nested CV (train+val folds)
+magpie+d_023,9,3.6184,0.14359,3.3827,3.7724,0.61129,0.52495,0.74949,4.8891,2.8104,nested CV (train+val folds)
+magpie+d_023,12,3.6084,0.16812,3.3256,3.7724,0.61607,0.52495,0.73283,4.8891,2.8104,nested CV (train+val folds)
+magpie+d_023,15,3.493,0.10629,3.3256,3.6222,0.67161,0.55529,0.81305,4.8891,2.8104,nested CV (train+val folds)
+median_const,9,4.8891,0.40006,4.4663,5.4897,0,0,0,4.8891,2.8104,nested CV (train+val folds)
+median_const,12,4.8891,0.40006,4.4663,5.4897,0,0,0,4.8891,2.8104,nested CV (train+val folds)
+median_const,15,4.8891,0.40006,4.4663,5.4897,0,0,0,4.8891,2.8104,nested CV (train+val folds)
+svr_baseline,9,2.8104,0.2718,2.4122,3.1451,1,1,1,4.8891,2.8104,nested CV (train+val folds)
+svr_baseline,12,2.8104,0.2718,2.4122,3.1451,1,1,1,4.8891,2.8104,nested CV (train+val folds)
+svr_baseline,15,2.8104,0.2718,2.4122,3.1451,1,1,1,4.8891,2.8104,nested CV (train+val folds)

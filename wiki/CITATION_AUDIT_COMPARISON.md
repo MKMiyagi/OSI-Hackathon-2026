@@ -18,3 +18,16 @@
 
 ## Numbers in the file that are ours, not from a paper
 All B/G errors for our models (`ledger/bg_errors.csv`), including the bootstrap intervals, are our own computations and are outside this audit's scope; they are reproducible with `scripts/bg_errors.py`.
+
+---
+
+# Addendum 2026-10-22: oracle-bound coefficients (Tian 2012, Mazhnik-Oganov 2019)
+
+Needed for F4 of `scripts/figures_svr.py` (oracle lines "needs true B,G"). **Skill**: `/citation-audit`, same adaptation as above (markdown audited; claims written out in the prompt). **Reviewer**: fresh Codex thread `01a16423-19ac-7662-8931-f9949cfa7669`; response in `.aris/traces/citation-audit/2026-10-22_run01/reviewer_response.md`.
+
+| Entry | Existence | Metadata | Claims | Verdict |
+|---|---|---|---|---|
+| [MO] Mazhnik & Oganov, J. Appl. Phys. 126, 125109 (2019) | yes | correct | coefficients 0.096, 8.5, 19.5, 7.5, 12.2, 19.6 supported (Eqs. 10, 11; E and nu are inversions of Eq. 7); Chen RMSE 4.4 GPa supported (Table I) | FIX (cite Eq. 7 too), applied as table row 9 |
+| [Ti] Tian, Xu, Zhao, IJRMHM 33, 93-106 (2012) | yes | correct | **0.92, 1.137, 0.708 not verified at source** (corroborated only by a later paper) | KEEP entry; claim UNVERIFIED |
+
+Consequences: Mazhnik-Oganov's MAE against the Chen labels (3.126 GPa on val, reproduced from the formulas in `scripts/figures_svr.py` and equal to wiki/BASELINES.md) is shown as the oracle line; the Tian line (1.14 in wiki/BASELINES.md) is omitted from the figures and the omission is stated in the F4 caption. Not verified: the publisher-hosted version of the Mazhnik-Oganov paper (the free PDF carries AIP layout and pagination); an arXiv version was not located.

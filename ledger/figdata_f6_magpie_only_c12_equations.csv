@@ -1,0 +1,10 @@
+run_id,complexity,formula
+v008_wo_s0,12,m_NUnfilled + ((317.4933 - exp(m_NdUnfilled)) * ((m_NsValence / m_NValence) / m_GSvolume_pa))
+v008_wo_s1,12,(642.905 / ((m_NValence - m_NfValence) * m_GSvolume_pa)) + (m_NpUnfilled * sqrt(m_NdUnfilled))
+v008_wo_s2,12,((((m_NsValence / 0.45178324) - m_NpValence) * m_MendeleevNumber) / exp(m_Row)) + m_NUnfilled
+v008_wo_s3,12,(642.7499 / ((m_NValence - m_NfValence) * m_GSvolume_pa)) + (sqrt(m_NdUnfilled) * m_NpUnfilled)
+v008_wo_s4,12,((((317.4725 - exp(m_NdUnfilled)) / m_GSvolume_pa) / m_NValence) * m_NsValence) + m_NUnfilled
+ref_s5,12,((((m_NsValence * 2.2135265) - m_NpValence) / exp(m_Row)) * m_MendeleevNumber) + m_NUnfilled
+ref_s6,12,m_NUnfilled + (((m_NsValence * 2.213261) - m_NpValence) / (exp(m_Row) / m_MendeleevNumber))
+ref_s7,12,m_NUnfilled + (((317.42026 - exp(m_NdUnfilled)) / m_NValence) / (m_GSvolume_pa / m_NsValence))
+ref_s8,12,(m_NpUnfilled * sqrt(m_NdUnfilled)) + ((642.7513 / m_GSvolume_pa) / (m_NValence - m_NfValence))

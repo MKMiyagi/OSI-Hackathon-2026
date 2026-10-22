@@ -1,0 +1,31 @@
+family,n,method,mae,seed_min,seed_max
+binary_CNB,14,train-median constant,13.517,,
+oxide,36,train-median constant,3.9449,,
+pnictide_chalcogenide,97,train-median constant,4.4354,,
+intermetallic,142,train-median constant,4.4133,,
+other,85,train-median constant,5.8632,,
+ALL,374,train-median constant,5.0442,,
+binary_CNB,14,Magpie SVR (black box),6.0124,,
+oxide,36,Magpie SVR (black box),2.234,,
+pnictide_chalcogenide,97,Magpie SVR (black box),2.4826,,
+intermetallic,142,Magpie SVR (black box),2.8725,,
+other,85,Magpie SVR (black box),2.9238,,
+ALL,374,Magpie SVR (black box),2.8391,,
+binary_CNB,14,d_023 c5 formula,7.1978,,
+oxide,36,d_023 c5 formula,4.8683,,
+pnictide_chalcogenide,97,d_023 c5 formula,3.4577,,
+intermetallic,142,d_023 c5 formula,3.618,,
+other,85,d_023 c5 formula,3.9565,,
+ALL,374,d_023 c5 formula,3.9077,,
+binary_CNB,14,d_023 c8 formula,7.3994,,
+oxide,36,d_023 c8 formula,4.1937,,
+pnictide_chalcogenide,97,d_023 c8 formula,3.2776,,
+intermetallic,142,d_023 c8 formula,3.4126,,
+other,85,d_023 c8 formula,3.817,,
+ALL,374,d_023 c8 formula,3.6939,,
+binary_CNB,14,"Magpie-only, best c<=12 (mean of 9 seeds, bars = range)",9.9894,8.471,11.25
+oxide,36,"Magpie-only, best c<=12 (mean of 9 seeds, bars = range)",4.3881,4.2607,4.5413
+pnictide_chalcogenide,97,"Magpie-only, best c<=12 (mean of 9 seeds, bars = range)",3.3717,3.2781,3.5125
+intermetallic,142,"Magpie-only, best c<=12 (mean of 9 seeds, bars = range)",3.8027,3.7338,3.9097
+other,85,"Magpie-only, best c<=12 (mean of 9 seeds, bars = range)",3.8086,3.544,3.9688
+ALL,374,"Magpie-only, best c<=12 (mean of 9 seeds, bars = range)",3.9802,3.9114,4.0521

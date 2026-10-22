@@ -1,0 +1,11 @@
+model,kind,quantity,n,mae,rmse,r2,rmse_lo,rmse_hi,r2_lo,r2_hi,source
+"SVR tehrani150 (150 feats, incl. 18 structural)",ours_svr,B,374,10.496,16.269,0.95129,14.054,18.669,0.93251,0.96519,"ours, val"
+"SVR tehrani150 (150 feats, incl. 18 structural)",ours_svr,G,374,11.46,17.542,0.83118,14.936,20.018,0.78831,0.86535,"ours, val"
+"SVR tehrani_comp (132, composition-only)",ours_svr,B,374,13.811,21.543,0.9146,18.068,25.244,0.87942,0.93966,"ours, val"
+"SVR tehrani_comp (132, composition-only)",ours_svr,G,374,13.533,20.939,0.75948,17.755,24.13,0.68541,0.81176,"ours, val"
+"SVR Magpie (132, composition-only; Hv baseline)",ours_svr,B,374,13.978,21.747,0.91298,17.592,26.203,0.86789,0.94367,"ours, val"
+"SVR Magpie (132, composition-only; Hv baseline)",ours_svr,G,374,12.805,18.798,0.80615,16.515,21.233,0.75072,0.84533,"ours, val"
+symbolic B = 3.365 d_023 (c3),ours_symbolic,B,374,23.506,31.948,0.81219,28.449,35.496,0.76093,0.85213,"ours, val; T1 run t1_Bd23_s0 (3 seeds identical)"
+"symbolic B, Magpie only (best c<=15, mean of 3 seeds)",ours_symbolic,B,374,31.219,40.943,0.6915,36.846,45.487,0.6077,0.75875,"ours, val; T1 runs t1_B_s0-2 (selected on val MAE: optimistic)"
+Tehrani 2018 as published (10-fold CV; 14 structural descriptors),published,B,2572,,17.2,0.94,,,,,"Tehrani 2018, verification table rows 5/6 (wiki/COMPARISON_TO_LITERATURE.md)"
+Tehrani 2018 as published (10-fold CV; 14 structural descriptors),published,G,2572,,16.5,0.84,,,,,"Tehrani 2018, verification table rows 5/6 (wiki/COMPARISON_TO_LITERATURE.md)"
