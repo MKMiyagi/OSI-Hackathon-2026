@@ -17,7 +17,7 @@ import pandas as pd
 METALS = frozenset(
     "Li Na K Rb Cs Fr Be Mg Ca Sr Ba Ra "
     "Sc Ti V Cr Mn Fe Co Ni Cu Zn Y Zr Nb Mo Tc Ru Rh Pd Ag Cd Hf Ta W Re Os Ir Pt Au Hg "
-    "La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu Ac Th Pa U Np Pu Am Cm "
+    "La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr "
     "Al Ga In Tl Sn Pb Bi".split()
 )
 
