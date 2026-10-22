@@ -1,0 +1,108 @@
+run_id,descriptors,complexity,val_mae_covered,n_rows,equation
+csA_s0,d_023c,1,4.381338743753892,119,5.841854
+csA_s0,d_023c,2,4.00883710019788,119,sqrt(d_023c)
+csA_s0,d_023c,3,3.81779664960507,119,d_023c / m_NValence
+csA_s0,d_023c,4,3.6778491852122563,119,d_023c / sqrt(m_Number)
+csA_s0,d_023c,5,3.4026736240347293,119,d_023c / (m_NdValence + 2.1689105)
+csA_s0,d_023c,7,3.228222958600789,119,m_NsValence + (d_023c / (m_NdValence + m_Row))
+csA_s0,d_023c,9,3.214342976560606,119,d_023c / ((m_NdValence / m_NsValence) + (m_Row - m_NpValence))
+csA_s0,d_023c,10,3.204271179576089,119,(d_023c / (m_Row + (m_NdValence / m_NsValence))) + sqrt(m_NpValence)
+csA_s0,d_023c,11,3.395344480085531,119,(d_023c + ((m_NdValence - m_NdUnfilled) * m_NdUnfilled)) / (m_NdValence + 2.0492349)
+csA_s0,d_023c,12,3.110849524649349,119,d_023c / (((exp(1.7005388 - m_NdUnfilled) + m_NdValence) / m_NsValence) + m_NdUnfilled)
+csA_s0,d_023c,14,3.1991292058929663,119,d_023c / (((exp(m_Electronegativity - (m_NdUnfilled * m_NdUnfilled)) + m_NdValence) / m_NsValence) + m_NdUnfilled)
+csA_s0,d_023c,15,3.134818617490254,119,(exp(m_NpValence) + d_023c) / (((exp(1.7759589 - m_NdUnfilled) + m_NdValence) / m_NsValence) + m_NdUnfilled)
+csA_s1,d_023c,1,4.3813384832496896,119,5.841853
+csA_s1,d_023c,2,4.00883710019788,119,sqrt(d_023c)
+csA_s1,d_023c,3,3.81779664960507,119,d_023c / m_NValence
+csA_s1,d_023c,4,3.6778491852122563,119,d_023c / sqrt(m_Number)
+csA_s1,d_023c,5,3.402674285362472,119,d_023c / (m_NdValence + 2.1689246)
+csA_s1,d_023c,7,3.228222958600789,119,m_NsValence + (d_023c / (m_Row + m_NdValence))
+csA_s1,d_023c,9,3.214342976560606,119,d_023c / (((m_NdValence / m_NsValence) - m_NpValence) + m_Row)
+csA_s1,d_023c,10,3.204271179576089,119,sqrt(m_NpValence) + (d_023c / ((m_NdValence / m_NsValence) + m_Row))
+csA_s1,d_023c,11,3.3954046780370626,119,(d_023c - ((m_NdUnfilled - m_NdValence) * m_NdUnfilled)) / (m_NdValence + 2.0494697)
+csA_s1,d_023c,12,2.974916407627302,119,d_023c / ((exp(m_NdUnfilled) / m_MendeleevNumber) + ((m_NdValence + 4.2924623) / m_NsValence))
+csA_s1,d_023c,14,2.9558953462695436,119,(d_023c / ((exp(m_NdUnfilled) / m_MendeleevNumber) + ((m_NdValence + 4.5183544) / m_NsValence))) + 0.41720316
+csA_s1,d_023c,15,2.9500160892468354,119,(d_023c / (((m_NdValence + log(m_CovalentRadius)) / m_NsValence) + (exp(m_NdUnfilled) / m_MendeleevNumber))) + 0.619634
+csA_s2,d_023c,1,4.381338743753892,119,5.841854
+csA_s2,d_023c,2,4.00883710019788,119,sqrt(d_023c)
+csA_s2,d_023c,3,3.81779664960507,119,d_023c / m_NValence
+csA_s2,d_023c,4,3.6778491852122563,119,d_023c / sqrt(m_Number)
+csA_s2,d_023c,5,3.4026800868988176,119,d_023c / (m_NdValence + 2.1690483)
+csA_s2,d_023c,7,3.228222958600789,119,(d_023c / (m_NdValence + m_Row)) + m_NsValence
+csA_s2,d_023c,9,3.214342976560606,119,d_023c / (((m_NdValence / m_NsValence) + m_Row) - m_NpValence)
+csA_s2,d_023c,10,3.204271179576089,119,(d_023c / (m_Row + (m_NdValence / m_NsValence))) + sqrt(m_NpValence)
+csA_s2,d_023c,11,3.395403268075002,119,(d_023c + ((m_NdValence - m_NdUnfilled) * m_NdUnfilled)) / (m_NdValence + 2.0494642)
+csA_s2,d_023c,12,2.9415642340991113,119,(d_023c / ((m_NdValence + 4.2778583) + (exp(m_NdUnfilled) / 28.4922))) * m_NsValence
+csA_s2,d_023c,14,2.950975283781879,119,((m_NsValence / (((exp(m_NdUnfilled) / 20.197975) + m_NdValence) + 4.5909386)) - -0.017617237) * d_023c
+csA_s2,d_023c,15,2.950055568569899,119,sqrt(m_NdUnfilled) + (d_023c * (m_NsValence / (m_NdValence + ((exp(m_NdUnfilled) / 11.245567) + 4.4793453))))
+csB_s0,d_023c+d_030,1,4.381338743753892,119,5.841854
+csB_s0,d_023c+d_030,2,4.00883710019788,119,sqrt(d_023c)
+csB_s0,d_023c+d_030,3,3.81779664960507,119,d_023c / m_NValence
+csB_s0,d_023c+d_030,4,3.6778491852122563,119,d_023c / sqrt(m_Number)
+csB_s0,d_023c+d_030,5,3.4026800868988176,119,d_023c / (m_NdValence + 2.1690483)
+csB_s0,d_023c+d_030,7,3.228222958600789,119,(d_023c / (m_NdValence + m_Row)) + m_NsValence
+csB_s0,d_023c+d_030,9,3.214342976560606,119,d_023c / ((m_NdValence / m_NsValence) + (m_Row - m_NpValence))
+csB_s0,d_023c+d_030,10,3.1695740163610595,119,m_NpValence + (d_023c / (m_Row + (m_NdValence / exp(d_030))))
+csB_s0,d_023c+d_030,11,2.9974334707791477,119,(m_Column * (d_030 - 0.194432)) + (d_023c / (m_NdValence + m_Row))
+csB_s0,d_023c+d_030,12,3.0533575285917958,119,(d_030 * (m_NsValence * sqrt(m_Column))) + (d_023c / (m_Row + m_NdValence))
+csB_s0,d_023c+d_030,13,2.9246323241411485,119,(m_NValence * (d_030 - 0.24334952)) + (d_023c / ((m_NdValence + m_Row) - m_NpValence))
+csB_s0,d_023c+d_030,15,2.8335347092973584,119,((m_NValence - m_NdUnfilled) * (d_030 - 0.22179729)) + (d_023c / (m_NdValence + (m_Row - m_NpValence)))
+csB_s1,d_023c+d_030,1,4.3813384832496896,119,5.841853
+csB_s1,d_023c+d_030,2,4.00883710019788,119,sqrt(d_023c)
+csB_s1,d_023c+d_030,3,3.81779664960507,119,d_023c / m_NValence
+csB_s1,d_023c+d_030,4,3.6778491852122563,119,d_023c / sqrt(m_Number)
+csB_s1,d_023c+d_030,5,3.4026799415157813,119,d_023c / (m_NdValence - -2.1690452)
+csB_s1,d_023c+d_030,7,3.228222958600789,119,(d_023c / (m_NdValence + m_Row)) + m_NsValence
+csB_s1,d_023c+d_030,9,3.214342976560606,119,d_023c / ((m_Row + (m_NdValence / m_NsValence)) - m_NpValence)
+csB_s1,d_023c+d_030,10,3.034956349030417,119,((d_023c * sqrt(d_030)) + (m_NUnfilled * m_NpUnfilled)) / m_Row
+csB_s1,d_023c+d_030,12,3.0733275698686664,119,((d_023c * sqrt(d_030)) + (m_NpUnfilled * (m_NpUnfilled * m_NdUnfilled))) / m_Row
+csB_s1,d_023c+d_030,13,3.315324127472791,119,(sqrt(d_030) * (d_023c + (m_NdUnfilled * (exp(m_NpUnfilled) + -2.4946585)))) / m_Row
+csB_s1,d_023c+d_030,14,3.29541984510633,119,(((m_NdUnfilled * (exp(m_NpUnfilled) - sqrt(m_NUnfilled))) + d_023c) / m_Row) * sqrt(d_030)
+csB_s1,d_023c+d_030,15,3.2182701033225656,119,(sqrt(d_030) / m_Row) * ((m_NdUnfilled * (exp(m_NpUnfilled) + (2.6764817 - m_NUnfilled))) + d_023c)
+csB_s2,d_023c+d_030,1,4.381338743753892,119,5.841854
+csB_s2,d_023c+d_030,2,4.00883710019788,119,sqrt(d_023c)
+csB_s2,d_023c+d_030,3,3.81779664960507,119,d_023c / m_NValence
+csB_s2,d_023c+d_030,4,3.6778491852122563,119,d_023c / sqrt(m_Number)
+csB_s2,d_023c+d_030,5,3.402673647486197,119,d_023c / (m_NdValence + 2.168911)
+csB_s2,d_023c+d_030,7,3.228222958600789,119,(d_023c / (m_Row + m_NdValence)) + m_NsValence
+csB_s2,d_023c+d_030,9,3.214342976560606,119,d_023c / (m_Row + ((m_NdValence / m_NsValence) - m_NpValence))
+csB_s2,d_023c+d_030,10,3.034956349030417,119,((d_023c * sqrt(d_030)) + (m_NpUnfilled * m_NUnfilled)) / m_Row
+csB_s2,d_023c+d_030,12,3.0733275698686664,119,((d_023c * sqrt(d_030)) + ((m_NdUnfilled * m_NpUnfilled) * m_NpUnfilled)) / m_Row
+csB_s2,d_023c+d_030,13,3.3153234497490405,119,sqrt(d_030) * ((d_023c + ((exp(m_NpUnfilled) - 2.4946713) * m_NdUnfilled)) / m_Row)
+csB_s2,d_023c+d_030,14,3.29541984510633,119,sqrt(d_030) * ((d_023c + ((exp(m_NpUnfilled) - sqrt(m_NUnfilled)) * m_NdUnfilled)) / m_Row)
+csB_s2,d_023c+d_030,15,3.2182700899538608,119,(sqrt(d_030) * ((m_NdUnfilled * (exp(m_NpUnfilled) - (m_NUnfilled - 2.676481))) + d_023c)) / m_Row
+csC_s0,d_023c+d_028,1,4.381338743753892,119,5.841854
+csC_s0,d_023c+d_028,2,4.104547433709775,119,sqrt(d_028)
+csC_s0,d_023c+d_028,3,3.81779664960507,119,d_023c / m_NValence
+csC_s0,d_023c+d_028,4,3.6778491852122563,119,d_023c / sqrt(m_Number)
+csC_s0,d_023c+d_028,5,3.4026800868988176,119,d_023c / (m_NdValence + 2.1690483)
+csC_s0,d_023c+d_028,7,3.228222958600789,119,(d_023c / (m_NdValence + m_Row)) + m_NsValence
+csC_s0,d_023c+d_028,9,3.214342976560606,119,d_023c / (((m_NdValence / m_NsValence) + m_Row) - m_NpValence)
+csC_s0,d_023c+d_028,10,3.204271179576089,119,sqrt(m_NpValence) + (d_023c / (m_Row + (m_NdValence / m_NsValence)))
+csC_s0,d_023c+d_028,11,3.3952906053540164,119,((m_NdUnfilled * (m_NdValence - m_NdUnfilled)) + d_023c) / (m_NdValence + 2.0490248)
+csC_s0,d_023c+d_028,12,2.974916520380002,119,d_023c / (((m_NdValence + 4.2924643) / m_NsValence) + (exp(m_NdUnfilled) / m_MendeleevNumber))
+csC_s0,d_023c+d_028,14,2.956362350965076,119,d_023c / (((m_Column / m_NsValence) - m_NpUnfilled) + ((exp(m_NdUnfilled) + 72.26181) / m_MendeleevNumber))
+csC_s1,d_023c+d_028,1,4.381433567283303,119,5.842218
+csC_s1,d_023c+d_028,2,4.104547433709775,119,sqrt(d_028)
+csC_s1,d_023c+d_028,3,3.81779664960507,119,d_023c / m_NValence
+csC_s1,d_023c+d_028,4,3.6778491852122563,119,d_023c / sqrt(m_Number)
+csC_s1,d_023c+d_028,5,3.4026800868988176,119,d_023c / (m_NdValence - -2.1690483)
+csC_s1,d_023c+d_028,7,3.228222958600789,119,(d_023c / (m_NdValence + m_Row)) + m_NsValence
+csC_s1,d_023c+d_028,9,3.2131751918052154,119,(d_023c / ((m_NdValence + m_Row) - m_GSmagmom)) + m_NsValence
+csC_s1,d_023c+d_028,10,3.11004806593466,119,exp(d_028 * 0.011092442) + (d_023c / (m_NdValence + m_Row))
+csC_s1,d_023c+d_028,11,3.395399243240896,119,(d_023c + (m_NdUnfilled * (m_NdValence - m_NdUnfilled))) / (m_NdValence - -2.0494485)
+csC_s1,d_023c+d_028,12,2.9415708918787598,119,(d_023c * m_NsValence) / ((m_NdValence - -4.277875) + exp(m_NdUnfilled + -3.3498583))
+csC_s1,d_023c+d_028,14,2.942578210312312,119,(d_023c * m_NsValence) / ((m_NdValence - -4.2399426) + exp(m_NdUnfilled + (m_Electronegativity * -1.9489021)))
+csC_s1,d_023c+d_028,15,2.950054447811142,119,(d_023c * (m_NsValence / (exp(m_NdUnfilled + -2.419843) + (m_NdValence - -4.4793043)))) + sqrt(m_NdUnfilled)
+csC_s2,d_023c+d_028,1,4.3813384832496896,119,5.841853
+csC_s2,d_023c+d_028,2,4.104547433709775,119,sqrt(d_028)
+csC_s2,d_023c+d_028,3,3.81779664960507,119,d_023c / m_NValence
+csC_s2,d_023c+d_028,4,3.6778491852122563,119,d_023c / sqrt(m_Number)
+csC_s2,d_023c+d_028,5,3.4026797304752385,119,d_023c / (m_NdValence + 2.1690407)
+csC_s2,d_023c+d_028,7,3.228222958600789,119,(d_023c / (m_NdValence + m_Row)) + m_NsValence
+csC_s2,d_023c+d_028,9,3.214342976560606,119,d_023c / ((m_Row + (m_NdValence / m_NsValence)) - m_NpValence)
+csC_s2,d_023c+d_028,10,3.204271179576089,119,(d_023c / (m_Row + (m_NdValence / m_NsValence))) + sqrt(m_NpValence)
+csC_s2,d_023c+d_028,11,3.39540719031809,119,(d_023c + ((m_NdValence - m_NdUnfilled) * m_NdUnfilled)) / (m_NdValence + 2.0494795)
+csC_s2,d_023c+d_028,12,2.974916447090759,119,d_023c / (((m_NdValence + 4.292463) / m_NsValence) + (exp(m_NdUnfilled) / m_MendeleevNumber))
+csC_s2,d_023c+d_028,14,2.9788583001339184,119,d_023c / (((m_NdValence + 4.232746) / m_NsValence) + exp(m_NdUnfilled - (m_Electronegativity * 2.313854)))
+csC_s2,d_023c+d_028,15,2.9500543091138143,119,(d_023c / (((m_NdValence + 4.4793167) + exp(m_NdUnfilled - 2.4196146)) / m_NsValence)) + sqrt(m_NdUnfilled)
