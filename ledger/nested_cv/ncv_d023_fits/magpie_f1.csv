@@ -1,0 +1,14 @@
+complexity,loss,equation
+1,50.163677,7.582971
+2,48.758064,exp(m_NsValence)
+3,40.47902,138.91074 / m_GSvolume_pa
+5,34.425846,(113.12993 / m_Number) + m_NUnfilled
+6,33.109024,exp((m_NUnfilled + 3.5651524) / m_Row)
+7,30.716389,(535.13776 / (m_GSvolume_pa * m_NValence)) + m_NUnfilled
+9,28.80261,164.6843 / ((m_GSvolume_pa + (m_NdValence * m_Electronegativity)) - m_NUnfilled)
+10,28.688719,161.93813 / (((m_NdValence * sqrt(m_NdValence)) + m_GSvolume_pa) - m_NUnfilled)
+11,27.88308,186.86313 / ((m_GSvolume_pa + (m_NdValence * 2.9286609)) - (m_NdUnfilled * m_NpUnfilled))
+12,27.259527,253.16577 / (((exp(m_NpValence) - m_NUnfilled) + (m_NdValence * m_Row)) + m_GSvolume_pa)
+13,26.7701,222.6565 / ((((4.720543 - m_NpUnfilled) * (m_NdValence + m_NpValence)) + m_GSvolume_pa) - m_NUnfilled)
+14,26.745085,251.85307 / ((m_NdValence * m_Row) + ((exp(m_NpValence) + m_GSvolume_pa) - (m_NpUnfilled * m_NdUnfilled)))
+15,25.97301,182.3809 / (((((4.0619636 - m_NpUnfilled) * (m_NpValence + m_NdValence)) + -3.5380664) - m_NdUnfilled) + m_GSvolume_pa)

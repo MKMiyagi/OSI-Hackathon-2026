@@ -1,0 +1,14 @@
+complexity,loss,equation
+1,45.898067,7.341201
+2,40.556496,sqrt(d_023)
+3,35.051018,d_023 / m_NValence
+4,30.178131,d_023 / sqrt(m_Number)
+5,28.06345,d_023 / (m_NdValence + 2.4036925)
+7,26.162144,m_NpUnfilled + (d_023 / (m_NdValence + 2.9343915))
+8,25.144949,m_NpUnfilled + (d_023 / (m_NdValence + sqrt(m_Column)))
+10,24.940374,m_GSmagmom + (m_NpUnfilled + (d_023 / (m_NdValence + sqrt(m_Column))))
+11,24.809307,(d_023 / (sqrt(m_Column) + m_NdValence)) + (m_NpUnfilled * sqrt(m_NsValence))
+12,24.257734,(d_023 / (sqrt(m_Column) + m_NdValence)) + (m_NpUnfilled * (m_NsValence - d_031))
+13,24.240652,(m_NpUnfilled * (sqrt(m_NUnfilled) - d_031)) + (d_023 / (m_NdValence + sqrt(m_Column)))
+14,24.019281,(m_NpUnfilled * (m_NsValence + (m_GSmagmom - d_031))) + (d_023 / (m_NdValence + sqrt(m_Column)))
+15,23.691616,(d_023 / (m_NdValence + sqrt(m_Column + m_NdUnfilled))) + ((sqrt(m_NUnfilled) - d_031) * m_NpUnfilled)

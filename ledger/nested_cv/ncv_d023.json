@@ -1,0 +1,1 @@
+{"run_id": "ncv_d023", "niterations": 22000, "maxsize": 15, "seed": 0, "procs": 4, "timeout": 900, "report": false, "arms": ["median_const", "svr_baseline", "svr_fitidx", "magpie", "magpie+d_023", "magpie+d_023+d_031"], "folds": null, "fit_only": false, "shard": "0/1", "report_d023": null, "outer_seed": 42, "n_rows": 2120, "n_groups": 1406, "total_seconds": 81.2}

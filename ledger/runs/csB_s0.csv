@@ -1,0 +1,13 @@
+complexity,loss,equation
+1,34.251465,5.841854
+2,28.16065,sqrt(d_023c)
+3,21.763796,d_023c / m_NValence
+4,19.434229,d_023c / sqrt(m_Number)
+5,18.200844,d_023c / (m_NdValence + 2.1690483)
+7,16.794033,(d_023c / (m_NdValence + m_Row)) + m_NsValence
+9,16.482107,d_023c / ((m_NdValence / m_NsValence) + (m_Row - m_NpValence))
+10,16.436453,m_NpValence + (d_023c / (m_Row + (m_NdValence / exp(d_030))))
+11,16.042915,(m_Column * (d_030 - 0.194432)) + (d_023c / (m_NdValence + m_Row))
+12,15.982927,(d_030 * (m_NsValence * sqrt(m_Column))) + (d_023c / (m_Row + m_NdValence))
+13,15.73253,(m_NValence * (d_030 - 0.24334952)) + (d_023c / ((m_NdValence + m_Row) - m_NpValence))
+15,15.515404,((m_NValence - m_NdUnfilled) * (d_030 - 0.22179729)) + (d_023c / (m_NdValence + (m_Row - m_NpValence)))
