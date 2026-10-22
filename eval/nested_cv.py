@@ -232,6 +232,8 @@ def main():
             else:
                 if task_i % shard_n != shard_i and args.fit_only:
                     continue
+                if (ROOT / "STOP").exists():
+                    raise SystemExit("STOP file present; fits so far are cached, rerun to resume")
                 t0 = time.time()
                 model = make_model(args.niterations, args.maxsize, args.procs, args.timeout, args.seed)
                 model.fit(X.loc[fit_idx, cols].values, y[fit_idx], variable_names=cols)
